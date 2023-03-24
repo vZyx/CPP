@@ -36,7 +36,8 @@
     "ostream": "cpp",
     "algorithm": "cpp",
     "*.tcc": "cpp"
-  }
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }
 
 /* w spaces -->  "cpp": "cd $dir && g++ \"$fileName\" -o \"$fileNameWithoutExt.exe\" && & \"$dir$fileNameWithoutExt.exe\"  "}

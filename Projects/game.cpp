@@ -1,13 +1,6 @@
 /*
     **Games System**
-
     Ziyad Saeed Alghamdi 2220000631
-    ...
-    ...
-    ...
-    ...
-
-
 */
 
 #include<iostream>

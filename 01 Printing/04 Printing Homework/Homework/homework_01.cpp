@@ -29,8 +29,6 @@ int main()
 }
 
 /*
- 
-
 Guess the output
 ---
 25

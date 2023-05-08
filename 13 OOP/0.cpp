@@ -37,10 +37,10 @@ public:
             cout<<"Width must be greater than 0"<<endl;
     }
 
-    float get_width() { //Method(setter)
+    float get_width() { //Method (setter)
         return width;}
 
-    void set_length(float l) {  //Method(setter)
+    void set_length(float l) {  //Method (setter)
         if (l >= 0) 
         length = l;
         else
@@ -50,17 +50,16 @@ public:
     float get_length() {    //Method (getter)
         return length;}
 
-    float get_area() {  //Method(getter)
+    float get_area() {  //Method (getter)
         return width * length;}
 
 };
-
 int main(){
     // initializing  a object of Rectangle class
     Rectangle box1;
     box1.set_width(5);
 //  box1.width = 50; can't do this as it is private
-    box1.set_length(5);
+    box1.set_length(5)
     cout<<"The Rectangle area is " << box1.get_area() << "\n"; // Void method
 
     return 0;

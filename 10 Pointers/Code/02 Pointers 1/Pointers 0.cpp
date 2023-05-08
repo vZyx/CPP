@@ -11,7 +11,7 @@ The address of the variable you're working with is assigned to the pointer:
 */
 
 string food = "Pizza";  // A food variable of type string
-string* ptrfood = &food;    // A pointer variable, with the name ptr, that stores the address of food
+string* ptrfood = &food;// A pointer variable, with the name ptr, that stores the address of food
 
 // Output the value of food (Pizza)
 cout << food << "\n";

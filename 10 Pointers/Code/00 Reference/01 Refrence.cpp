@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
-int main()
-{
+int main() {
     int  x   { 5 }; // normal integer variable
     int& ref { x }; // ref is now an alias for variable x
 
@@ -13,7 +12,7 @@ int main()
 
     ref = 7; // the object being referenced (x) now has value 7
 
-    cout << x << ref << '\n'; // prints 77
+    cout << x << ref << '\n'; // prints 7 7
 
     return 0;
 }

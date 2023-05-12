@@ -2,6 +2,7 @@
 using namespace std;
 
 // A acts as a pointer. We can do this *A instead.
+
 //pass by address and the number by value
 void print(int A[], int n){
     //Changing the 1st Value

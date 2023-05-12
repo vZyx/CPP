@@ -38,6 +38,7 @@ class Employee {
 
 int main() {
   Employee First;
+  
   First.setSalary(50000);
   cout << First.getSalary();
   return 0;

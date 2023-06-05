@@ -2,12 +2,12 @@
 using namespace std;
 
 
-// defining and initializing a function
+// Defining and initializing a function
 void Welcome(){
     cout<<"Hello world!"<<endl;
 }
 
-// Onyl defining
+//  Defining later
 void later();
 
 int main(){
@@ -19,6 +19,7 @@ int main(){
     return 0;
 }
 
+//initializing later
 void later(){
     cout<<"Got executed later!"<<endl;
 }

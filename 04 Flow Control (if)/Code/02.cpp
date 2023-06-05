@@ -6,7 +6,7 @@ int main() {
 	cin>>num;
 
 	if (num == 10) // use {} if you want to do more logic inside a scope.
-	               // Note: what inside the {} not visible outside it
+	               // Note: What inside the {} not visible outside it
 	{
 		int x = 3;
 		cout<<"10 is lucky number\n";

@@ -2,21 +2,24 @@
 using namespace std;
 
 ///Program for function to find the maximum of 3 numbers
-int max(int a, int b, int c){
-	if(a>b && a>c)
-		return a;
-	else if(b>c)
-		return b;
+int max(int n1, int n2, int n3){
+	if(n1 > n2 && n1 > n3)
+		return n1;
+	else if(n2 > n3)
+		return n2;
 	else
-		return c;
+		return n3;
 }
 
 
 int main(){
-    int a,b,c,d;
+    int a,b,c, Maximum;
+
 	cout<<"Enter 3 numbers: ";
 	cin>>a>>b>>c;
-	d=max(a,b,c);
-	cout<<"Maximum no is >> "<<d;
+
+	Maximum= max(a,b,c);
+	cout<<"Maximum no is = "<< Maximum;
+
     return 0;
 }

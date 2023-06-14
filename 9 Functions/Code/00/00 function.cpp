@@ -7,7 +7,7 @@ void Welcome(){
     cout<<"Hello world!"<<endl;
 }
 
-//  Defining later
+//  Defining here
 void later();
 
 int main(){

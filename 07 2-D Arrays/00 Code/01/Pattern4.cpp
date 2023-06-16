@@ -15,7 +15,7 @@ int main(){
 		else
         cout<<" ";
         }
-	     cout<<endl;
+	    cout<<endl;
 	}
 	return 0;
 }

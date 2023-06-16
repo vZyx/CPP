@@ -20,8 +20,8 @@ void pattern1(int N)
             cout << "* ";
         }
 
-        // As soon as N stars are printed, we move to the
-        // next row and give a line break otherwise all stars
+        // As soon as N stars are printed, we move to the next row
+        // And give a line break otherwise all stars
         // would get printed in 1 line.
         cout << endl;
     }

@@ -3,8 +3,8 @@ using namespace std;
 
 int main() {
 	// d, r, u, l
-	int di[] = {1, 0, -1, 0};
-	int dj[] = {0, 1, 0, -1};
+	int dimensionsi[] = {1, 0, -1, 0};
+	int dimensionsj[] = {0, 1, 0, -1};
 
 	int i = 4, j = 7;
 

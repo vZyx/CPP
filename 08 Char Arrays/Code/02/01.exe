@@ -1445,22 +1445,22 @@ namespace std
 namespace std
 {
 
-  using std::wcstof;
+  using wcstof;
 
 
-  using std::vfwscanf;
+  using vfwscanf;
 
 
-  using std::vswscanf;
+  using vswscanf;
 
 
-  using std::vwscanf;
+  using vwscanf;
 
 
 
-  using std::wcstold;
-  using std::wcstoll;
-  using std::wcstoull;
+  using wcstold;
+  using wcstoll;
+  using wcstoull;
 
 }
 # 41 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/postypes.h" 2 3
@@ -1925,7 +1925,7 @@ namespace __cxxabiv1
 
 
       __cxa_refcounted_exception*
-      __cxa_init_primary_exception(void *object, std::type_info *tinfo,
+      __cxa_init_primary_exception(void *object, type_info *tinfo,
                 void ( *dest) (void *)) noexcept;
 
     }
@@ -2173,32 +2173,32 @@ namespace std
 
 }
 # 120 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/new" 3
-void* operator new(std::size_t)
+void* operator new(size_t)
   __attribute__((__externally_visible__));
-void* operator new[](std::size_t)
+void* operator new[](size_t)
   __attribute__((__externally_visible__));
 void operator delete(void*) noexcept
   __attribute__((__externally_visible__));
 void operator delete[](void*) noexcept
   __attribute__((__externally_visible__));
 
-void operator delete(void*, std::size_t) noexcept
+void operator delete(void*, size_t) noexcept
   __attribute__((__externally_visible__));
-void operator delete[](void*, std::size_t) noexcept
+void operator delete[](void*, size_t) noexcept
   __attribute__((__externally_visible__));
 
-void* operator new(std::size_t, const std::nothrow_t&) noexcept
+void* operator new(size_t, const nothrow_t&) noexcept
   __attribute__((__externally_visible__));
-void* operator new[](std::size_t, const std::nothrow_t&) noexcept
+void* operator new[](size_t, const nothrow_t&) noexcept
   __attribute__((__externally_visible__));
-void operator delete(void*, const std::nothrow_t&) noexcept
+void operator delete(void*, const nothrow_t&) noexcept
   __attribute__((__externally_visible__));
-void operator delete[](void*, const std::nothrow_t&) noexcept
+void operator delete[](void*, const nothrow_t&) noexcept
   __attribute__((__externally_visible__));
 # 168 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/new" 3
-inline void* operator new(std::size_t, void* __p) noexcept
+inline void* operator new(size_t, void* __p) noexcept
 { return __p; }
-inline void* operator new[](std::size_t, void* __p) noexcept
+inline void* operator new[](size_t, void* __p) noexcept
 { return __p; }
 
 
@@ -2241,7 +2241,7 @@ namespace std
 
   namespace __exception_ptr
   {
-    using std::rethrow_exception;
+    using rethrow_exception;
 
 
 
@@ -2258,10 +2258,10 @@ namespace std
 
       void *_M_get() const noexcept __attribute__ ((__pure__));
 
-      friend exception_ptr std::current_exception() noexcept;
-      friend void std::rethrow_exception(exception_ptr);
+      friend exception_ptr current_exception() noexcept;
+      friend void rethrow_exception(exception_ptr);
       template<typename _Ex>
-      friend exception_ptr std::make_exception_ptr(_Ex) noexcept;
+      friend exception_ptr make_exception_ptr(_Ex) noexcept;
 
     public:
       exception_ptr() noexcept;
@@ -2302,7 +2302,7 @@ namespace std
       operator==(const exception_ptr&, const exception_ptr&)
  noexcept __attribute__ ((__pure__));
 
-      const class std::type_info*
+      const class type_info*
       __cxa_exception_type() const noexcept
  __attribute__ ((__pure__));
     };
@@ -2337,7 +2337,7 @@ namespace std
 
           void *__e = __cxxabiv1::__cxa_allocate_exception(sizeof(_Ex));
           (void)__cxxabiv1::__cxa_init_primary_exception(
-       __e, const_cast<std::type_info*>(&typeid(__ex)),
+       __e, const_cast<type_info*>(&typeid(__ex)),
        __exception_ptr::__dest_thunk<_Ex>);
           ::new (__e) _Ex(__ex);
           return exception_ptr(__e);
@@ -2638,7 +2638,7 @@ namespace std
     struct is_array
     : public false_type { };
 
-  template<typename _Tp, std::size_t _Size>
+  template<typename _Tp, size_t _Size>
     struct is_array<_Tp[_Size]>
     : public true_type { };
 
@@ -2837,7 +2837,7 @@ namespace std
     : public false_type { };
 
   template<>
-    struct __is_null_pointer_helper<std::nullptr_t>
+    struct __is_null_pointer_helper<nullptr_t>
     : public true_type { };
 
 
@@ -3568,36 +3568,36 @@ namespace std
 
   template<typename _Tp>
     struct alignment_of
-    : public integral_constant<std::size_t, __alignof__(_Tp)> { };
+    : public integral_constant<size_t, __alignof__(_Tp)> { };
 
 
   template<typename>
     struct rank
-    : public integral_constant<std::size_t, 0> { };
+    : public integral_constant<size_t, 0> { };
 
-  template<typename _Tp, std::size_t _Size>
+  template<typename _Tp, size_t _Size>
     struct rank<_Tp[_Size]>
-    : public integral_constant<std::size_t, 1 + rank<_Tp>::value> { };
+    : public integral_constant<size_t, 1 + rank<_Tp>::value> { };
 
   template<typename _Tp>
     struct rank<_Tp[]>
-    : public integral_constant<std::size_t, 1 + rank<_Tp>::value> { };
+    : public integral_constant<size_t, 1 + rank<_Tp>::value> { };
 
 
   template<typename, unsigned _Uint>
     struct extent
-    : public integral_constant<std::size_t, 0> { };
+    : public integral_constant<size_t, 0> { };
 
-  template<typename _Tp, unsigned _Uint, std::size_t _Size>
+  template<typename _Tp, unsigned _Uint, size_t _Size>
     struct extent<_Tp[_Size], _Uint>
-    : public integral_constant<std::size_t,
+    : public integral_constant<size_t,
           _Uint == 0 ? _Size : extent<_Tp,
           _Uint - 1>::value>
     { };
 
   template<typename _Tp, unsigned _Uint>
     struct extent<_Tp[], _Uint>
-    : public integral_constant<std::size_t,
+    : public integral_constant<size_t,
           _Uint == 0 ? 0 : extent<_Tp,
              _Uint - 1>::value>
     { };
@@ -3633,7 +3633,7 @@ namespace std
  static void __test_aux(_To1);
 
       template<typename _From1, typename _To1,
-        typename = decltype(__test_aux<_To1>(std::declval<_From1>()))>
+        typename = decltype(__test_aux<_To1>(declval<_From1>()))>
  static true_type
  __test(int);
 
@@ -4007,7 +4007,7 @@ namespace std
     struct remove_extent
     { typedef _Tp type; };
 
-  template<typename _Tp, std::size_t _Size>
+  template<typename _Tp, size_t _Size>
     struct remove_extent<_Tp[_Size]>
     { typedef _Tp type; };
 
@@ -4020,7 +4020,7 @@ namespace std
     struct remove_all_extents
     { typedef _Tp type; };
 
-  template<typename _Tp, std::size_t _Size>
+  template<typename _Tp, size_t _Size>
     struct remove_all_extents<_Tp[_Size]>
     { typedef typename remove_all_extents<_Tp>::type type; };
 
@@ -4079,7 +4079,7 @@ namespace std
     using add_pointer_t = typename add_pointer<_Tp>::type;
 
 
-  template<std::size_t _Len>
+  template<size_t _Len>
     struct __aligned_storage_msa
     {
       union __type
@@ -4089,7 +4089,7 @@ namespace std
       };
     };
 # 1872 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/type_traits" 3
-  template<std::size_t _Len, std::size_t _Align =
+  template<size_t _Len, size_t _Align =
     __alignof__(typename __aligned_storage_msa<_Len>::__type)>
     struct aligned_storage
     {
@@ -4226,8 +4226,8 @@ namespace std
   {
     template<typename _Tp, typename _Up>
       static __success_type<typename decay<decltype
-       (true ? std::declval<_Tp>()
-        : std::declval<_Up>())>::type> _S_test(int);
+       (true ? declval<_Tp>()
+        : declval<_Up>())>::type> _S_test(int);
 
     template<typename, typename>
       static __failure_type _S_test(...);
@@ -4326,7 +4326,7 @@ namespace std
   {
     template<typename _Fp, typename _Tp1, typename... _Args>
       static __result_of_success<decltype(
-      (std::declval<_Tp1>().*std::declval<_Fp>())(std::declval<_Args>()...)
+      (declval<_Tp1>().*declval<_Fp>())(declval<_Args>()...)
       ), __invoke_memfun_ref> _S_test(int);
 
     template<typename...>
@@ -4345,7 +4345,7 @@ namespace std
   {
     template<typename _Fp, typename _Tp1, typename... _Args>
       static __result_of_success<decltype(
-      ((*std::declval<_Tp1>()).*std::declval<_Fp>())(std::declval<_Args>()...)
+      ((*declval<_Tp1>()).*declval<_Fp>())(declval<_Args>()...)
       ), __invoke_memfun_deref> _S_test(int);
 
     template<typename...>
@@ -4364,7 +4364,7 @@ namespace std
   {
     template<typename _Fp, typename _Tp1>
       static __result_of_success<decltype(
-      std::declval<_Tp1>().*std::declval<_Fp>()
+      declval<_Tp1>().*declval<_Fp>()
       ), __invoke_memobj_ref> _S_test(int);
 
     template<typename, typename>
@@ -4383,7 +4383,7 @@ namespace std
   {
     template<typename _Fp, typename _Tp1>
       static __result_of_success<decltype(
-      (*std::declval<_Tp1>()).*std::declval<_Fp>()
+      (*declval<_Tp1>()).*declval<_Fp>()
       ), __invoke_memobj_deref> _S_test(int);
 
     template<typename, typename>
@@ -4469,7 +4469,7 @@ namespace std
   {
     template<typename _Fn, typename... _Args>
       static __result_of_success<decltype(
-      std::declval<_Fn>()(std::declval<_Args>()...)
+      declval<_Fn>()(declval<_Args>()...)
       ), __invoke_other> _S_test(int);
 
     template<typename...>
@@ -4613,12 +4613,12 @@ namespace std
     noexcept(__is_nothrow_swappable<_Tp>::value);
 
   namespace __swappable_details {
-    using std::swap;
+    using swap;
 
     struct __do_is_swappable_impl
     {
       template<typename _Tp, typename
-               = decltype(swap(std::declval<_Tp&>(), std::declval<_Tp&>()))>
+               = decltype(swap(declval<_Tp&>(), declval<_Tp&>()))>
         static true_type __test(int);
 
       template<typename>
@@ -4629,7 +4629,7 @@ namespace std
     {
       template<typename _Tp>
         static __bool_constant<
-          noexcept(swap(std::declval<_Tp&>(), std::declval<_Tp&>()))
+          noexcept(swap(declval<_Tp&>(), declval<_Tp&>()))
         > __test(int);
 
       template<typename>
@@ -4691,14 +4691,14 @@ namespace std
 
 
   namespace __swappable_with_details {
-    using std::swap;
+    using swap;
 
     struct __do_is_swappable_with_impl
     {
       template<typename _Tp, typename _Up, typename
-               = decltype(swap(std::declval<_Tp>(), std::declval<_Up>())),
+               = decltype(swap(declval<_Tp>(), declval<_Up>())),
                typename
-               = decltype(swap(std::declval<_Up>(), std::declval<_Tp>()))>
+               = decltype(swap(declval<_Up>(), declval<_Tp>()))>
         static true_type __test(int);
 
       template<typename, typename>
@@ -4709,9 +4709,9 @@ namespace std
     {
       template<typename _Tp, typename _Up>
         static __bool_constant<
-          noexcept(swap(std::declval<_Tp>(), std::declval<_Up>()))
+          noexcept(swap(declval<_Tp>(), declval<_Up>()))
           &&
-          noexcept(swap(std::declval<_Up>(), std::declval<_Tp>()))
+          noexcept(swap(declval<_Up>(), declval<_Tp>()))
         > __test(int);
 
       template<typename, typename>
@@ -4795,40 +4795,40 @@ namespace std
     constexpr bool __call_is_nt(__invoke_memfun_ref)
     {
       using _Up = typename __inv_unwrap<_Tp>::type;
-      return noexcept((std::declval<_Up>().*std::declval<_Fn>())(
-     std::declval<_Args>()...));
+      return noexcept((declval<_Up>().*declval<_Fn>())(
+     declval<_Args>()...));
     }
 
   template<typename _Fn, typename _Tp, typename... _Args>
     constexpr bool __call_is_nt(__invoke_memfun_deref)
     {
-      return noexcept(((*std::declval<_Tp>()).*std::declval<_Fn>())(
-     std::declval<_Args>()...));
+      return noexcept(((*declval<_Tp>()).*declval<_Fn>())(
+     declval<_Args>()...));
     }
 
   template<typename _Fn, typename _Tp>
     constexpr bool __call_is_nt(__invoke_memobj_ref)
     {
       using _Up = typename __inv_unwrap<_Tp>::type;
-      return noexcept(std::declval<_Up>().*std::declval<_Fn>());
+      return noexcept(declval<_Up>().*declval<_Fn>());
     }
 
   template<typename _Fn, typename _Tp>
     constexpr bool __call_is_nt(__invoke_memobj_deref)
     {
-      return noexcept((*std::declval<_Tp>()).*std::declval<_Fn>());
+      return noexcept((*declval<_Tp>()).*declval<_Fn>());
     }
 
   template<typename _Fn, typename... _Args>
     constexpr bool __call_is_nt(__invoke_other)
     {
-      return noexcept(std::declval<_Fn>()(std::declval<_Args>()...));
+      return noexcept(declval<_Fn>()(declval<_Args>()...));
     }
 
   template<typename _Result, typename _Fn, typename... _Args>
     struct __call_is_nothrow
     : __bool_constant<
- std::__call_is_nt<_Fn, _Args...>(typename _Result::__invoke_type{})
+ __call_is_nt<_Fn, _Args...>(typename _Result::__invoke_type{})
       >
     { };
 
@@ -4860,7 +4860,7 @@ namespace std
 # 72 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/move.h" 3
   template<typename _Tp>
     constexpr _Tp&&
-    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+    forward(typename remove_reference<_Tp>::type& __t) noexcept
     { return static_cast<_Tp&&>(__t); }
 
 
@@ -4871,9 +4871,9 @@ namespace std
 
   template<typename _Tp>
     constexpr _Tp&&
-    forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+    forward(typename remove_reference<_Tp>::type&& __t) noexcept
     {
-      static_assert(!std::is_lvalue_reference<_Tp>::value, "template argument"
+      static_assert(!is_lvalue_reference<_Tp>::value, "template argument"
       " substituting _Tp is an lvalue reference type");
       return static_cast<_Tp&&>(__t);
     }
@@ -4884,9 +4884,9 @@ namespace std
 
 
   template<typename _Tp>
-    constexpr typename std::remove_reference<_Tp>::type&&
+    constexpr typename remove_reference<_Tp>::type&&
     move(_Tp&& __t) noexcept
-    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+    { return static_cast<typename remove_reference<_Tp>::type&&>(__t); }
 
 
   template<typename _Tp>
@@ -4898,12 +4898,12 @@ namespace std
     constexpr typename
     conditional<__move_if_noexcept_cond<_Tp>::value, const _Tp&, _Tp&&>::type
     move_if_noexcept(_Tp& __x) noexcept
-    { return std::move(__x); }
+    { return move(__x); }
 # 136 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/move.h" 3
   template<typename _Tp>
     inline _Tp*
     addressof(_Tp& __r) noexcept
-    { return std::__addressof(__r); }
+    { return __addressof(__r); }
 
 
 
@@ -4915,8 +4915,8 @@ namespace std
     inline _Tp
     __exchange(_Tp& __obj, _Up&& __new_val)
     {
-      _Tp __old_val = std::move(__obj);
-      __obj = std::forward<_Up>(__new_val);
+      _Tp __old_val = move(__obj);
+      __obj = forward<_Up>(__new_val);
       return __old_val;
     }
 # 176 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/move.h" 3
@@ -4937,9 +4937,9 @@ namespace std
 
      
 
-      _Tp __tmp = std::move(__a);
-      __a = std::move(__b);
-      __b = std::move(__tmp);
+      _Tp __tmp = move(__a);
+      __a = move(__b);
+      __b = move(__tmp);
     }
 
 
@@ -4994,7 +4994,7 @@ namespace std
     {
       if (_M_ptr)
  rethrow_exception(_M_ptr);
-      std::terminate();
+      terminate();
     }
 
     exception_ptr
@@ -5023,14 +5023,14 @@ namespace std
     __throw_with_nested_impl(_Tp&& __t, true_type)
     {
       using _Up = typename remove_reference<_Tp>::type;
-      throw _Nested_exception<_Up>{std::forward<_Tp>(__t)};
+      throw _Nested_exception<_Up>{forward<_Tp>(__t)};
     }
 
   template<typename _Tp>
     [[noreturn]]
     inline void
     __throw_with_nested_impl(_Tp&& __t, false_type)
-    { throw std::forward<_Tp>(__t); }
+    { throw forward<_Tp>(__t); }
 
 
 
@@ -5046,7 +5046,7 @@ namespace std
    "throw_with_nested argument must be CopyConstructible");
       using __nest = __and_<is_class<_Up>, __bool_constant<!__is_final(_Up)>,
        __not_<is_base_of<nested_exception, _Up>>>;
-      std::__throw_with_nested_impl(std::forward<_Tp>(__t), __nest{});
+      __throw_with_nested_impl(forward<_Tp>(__t), __nest{});
     }
 
 
@@ -5075,7 +5075,7 @@ namespace std
   template<typename _Ex>
     inline void
     rethrow_if_nested(const _Ex& __ex)
-    { std::__rethrow_if_nested_impl(std::__addressof(__ex)); }
+    { __rethrow_if_nested_impl(__addressof(__ex)); }
 
 
 }
@@ -5526,7 +5526,7 @@ namespace __gnu_cxx
     struct __add_unsigned
     {
     private:
-      typedef __enable_if<std::__is_integer<_Tp>::__value, _Tp> __if_type;
+      typedef __enable_if<__is_integer<_Tp>::__value, _Tp> __if_type;
 
     public:
       typedef typename __if_type::__type __type;
@@ -5569,7 +5569,7 @@ namespace __gnu_cxx
     struct __remove_unsigned
     {
     private:
-      typedef __enable_if<std::__is_integer<_Tp>::__value, _Tp> __if_type;
+      typedef __enable_if<__is_integer<_Tp>::__value, _Tp> __if_type;
 
     public:
       typedef typename __if_type::__type __type;
@@ -5620,12 +5620,12 @@ namespace __gnu_cxx
 
 
   inline bool
-  __is_null_pointer(std::nullptr_t)
+  __is_null_pointer(nullptr_t)
   { return true; }
 
 
 
-  template<typename _Tp, bool = std::__is_integer<_Tp>::__value>
+  template<typename _Tp, bool = __is_integer<_Tp>::__value>
     struct __promote
     { typedef double __type; };
 
@@ -5720,12 +5720,12 @@ namespace __gnu_cxx
     struct __numeric_traits_floating
     {
 
-      static const int __max_digits10 = (2 + (std::__are_same<_Value, float>::__value ? 24 : std::__are_same<_Value, double>::__value ? 53 : 64) * 643L / 2136);
+      static const int __max_digits10 = (2 + (__are_same<_Value, float>::__value ? 24 : __are_same<_Value, double>::__value ? 53 : 64) * 643L / 2136);
 
 
       static const bool __is_signed = true;
-      static const int __digits10 = (std::__are_same<_Value, float>::__value ? 6 : std::__are_same<_Value, double>::__value ? 15 : 18);
-      static const int __max_exponent10 = (std::__are_same<_Value, float>::__value ? 38 : std::__are_same<_Value, double>::__value ? 308 : 4932);
+      static const int __digits10 = (__are_same<_Value, float>::__value ? 6 : __are_same<_Value, double>::__value ? 15 : 18);
+      static const int __max_exponent10 = (__are_same<_Value, float>::__value ? 38 : __are_same<_Value, double>::__value ? 308 : 4932);
     };
 
   template<typename _Value>
@@ -5742,7 +5742,7 @@ namespace __gnu_cxx
 
   template<typename _Value>
     struct __numeric_traits
-    : public __conditional_type<std::__is_integer<_Value>::__value,
+    : public __conditional_type<__is_integer<_Value>::__value,
     __numeric_traits_integer<_Value>,
     __numeric_traits_floating<_Value> >::__type
     { };
@@ -5766,7 +5766,7 @@ namespace std
   template<typename...>
     class tuple;
 
-  template<std::size_t...>
+  template<size_t...>
     struct _Index_tuple;
 
 
@@ -5865,7 +5865,7 @@ namespace std
 
 
 
-  struct __nonesuch_no_braces : std::__nonesuch {
+  struct __nonesuch_no_braces : __nonesuch {
     explicit __nonesuch_no_braces(const __nonesuch&) = delete;
   };
 # 197 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_pair.h" 3
@@ -5958,28 +5958,28 @@ namespace std
       _MoveCopyPair<true, _U1, _T2>(),
                          bool>::type=true>
        constexpr pair(_U1&& __x, const _T2& __y)
-       : first(std::forward<_U1>(__x)), second(__y) { }
+       : first(forward<_U1>(__x)), second(__y) { }
 
       template<typename _U1, typename
         enable_if<_PCCP::template
       _MoveCopyPair<false, _U1, _T2>(),
                          bool>::type=false>
        explicit constexpr pair(_U1&& __x, const _T2& __y)
-       : first(std::forward<_U1>(__x)), second(__y) { }
+       : first(forward<_U1>(__x)), second(__y) { }
 
       template<typename _U2, typename
         enable_if<_PCCP::template
       _CopyMovePair<true, _T1, _U2>(),
                          bool>::type=true>
        constexpr pair(const _T1& __x, _U2&& __y)
-       : first(__x), second(std::forward<_U2>(__y)) { }
+       : first(__x), second(forward<_U2>(__y)) { }
 
       template<typename _U2, typename
         enable_if<_PCCP::template
       _CopyMovePair<false, _T1, _U2>(),
                          bool>::type=false>
        explicit pair(const _T1& __x, _U2&& __y)
-       : first(__x), second(std::forward<_U2>(__y)) { }
+       : first(__x), second(forward<_U2>(__y)) { }
 
       template<typename _U1, typename _U2, typename
         enable_if<_PCCP::template
@@ -5988,7 +5988,7 @@ namespace std
       _ImplicitlyMoveConvertiblePair<_U1, _U2>(),
                          bool>::type=true>
  constexpr pair(_U1&& __x, _U2&& __y)
- : first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+ : first(forward<_U1>(__x)), second(forward<_U2>(__y)) { }
 
       template<typename _U1, typename _U2, typename
         enable_if<_PCCP::template
@@ -5997,7 +5997,7 @@ namespace std
       _ImplicitlyMoveConvertiblePair<_U1, _U2>(),
                          bool>::type=false>
  explicit constexpr pair(_U1&& __x, _U2&& __y)
- : first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+ : first(forward<_U1>(__x)), second(forward<_U2>(__y)) { }
 
 
       template<typename _U1, typename _U2, typename
@@ -6007,8 +6007,8 @@ namespace std
       _ImplicitlyMoveConvertiblePair<_U1, _U2>(),
                          bool>::type=true>
  constexpr pair(pair<_U1, _U2>&& __p)
- : first(std::forward<_U1>(__p.first)),
-   second(std::forward<_U2>(__p.second)) { }
+ : first(forward<_U1>(__p.first)),
+   second(forward<_U2>(__p.second)) { }
 
       template<typename _U1, typename _U2, typename
         enable_if<_PCCFP<_U1, _U2>::template
@@ -6017,8 +6017,8 @@ namespace std
       _ImplicitlyMoveConvertiblePair<_U1, _U2>(),
                          bool>::type=false>
  explicit constexpr pair(pair<_U1, _U2>&& __p)
- : first(std::forward<_U1>(__p.first)),
-   second(std::forward<_U2>(__p.second)) { }
+ : first(forward<_U1>(__p.first)),
+   second(forward<_U2>(__p.second)) { }
 
       template<typename... _Args1, typename... _Args2>
         pair(piecewise_construct_t, tuple<_Args1...>, tuple<_Args2...>);
@@ -6048,8 +6048,8 @@ namespace std
       noexcept(__and_<is_nothrow_move_assignable<_T1>,
                is_nothrow_move_assignable<_T2>>::value)
       {
- first = std::forward<first_type>(__p.first);
- second = std::forward<second_type>(__p.second);
+ first = forward<first_type>(__p.first);
+ second = forward<second_type>(__p.second);
  return *this;
       }
 
@@ -6070,8 +6070,8 @@ namespace std
     pair&>::type
  operator=(pair<_U1, _U2>&& __p)
  {
-   first = std::forward<_U1>(__p.first);
-   second = std::forward<_U2>(__p.second);
+   first = forward<_U1>(__p.first);
+   second = forward<_U2>(__p.second);
    return *this;
  }
 
@@ -6080,14 +6080,14 @@ namespace std
       noexcept(__and_<__is_nothrow_swappable<_T1>,
                       __is_nothrow_swappable<_T2>>::value)
       {
- using std::swap;
+ using swap;
  swap(first, __p.first);
  swap(second, __p.second);
       }
 
     private:
-      template<typename... _Args1, std::size_t... _Indexes1,
-               typename... _Args2, std::size_t... _Indexes2>
+      template<typename... _Args1, size_t... _Indexes1,
+               typename... _Args2, size_t... _Indexes2>
         pair(tuple<_Args1...>&, tuple<_Args2...>&,
              _Index_tuple<_Indexes1...>, _Index_tuple<_Indexes2...>);
 
@@ -6165,7 +6165,7 @@ namespace std
       typedef typename __decay_and_strip<_T1>::__type __ds_type1;
       typedef typename __decay_and_strip<_T2>::__type __ds_type2;
       typedef pair<__ds_type1, __ds_type2> __pair_type;
-      return __pair_type(std::forward<_T1>(__x), std::forward<_T2>(__y));
+      return __pair_type(forward<_T1>(__x), forward<_T2>(__y));
     }
 # 535 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_pair.h" 3
 
@@ -6334,14 +6334,14 @@ namespace std
 
   template<typename _Tp>
     ptrdiff_t
-    __distance(std::_List_iterator<_Tp>,
-        std::_List_iterator<_Tp>,
+    __distance(_List_iterator<_Tp>,
+        _List_iterator<_Tp>,
         input_iterator_tag);
 
   template<typename _Tp>
     ptrdiff_t
-    __distance(std::_List_const_iterator<_Tp>,
-        std::_List_const_iterator<_Tp>,
+    __distance(_List_const_iterator<_Tp>,
+        _List_const_iterator<_Tp>,
         input_iterator_tag);
 # 135 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator_base_funcs.h" 3
   template<typename _InputIterator>
@@ -6350,8 +6350,8 @@ namespace std
     distance(_InputIterator __first, _InputIterator __last)
     {
 
-      return std::__distance(__first, __last,
-        std::__iterator_category(__first));
+      return __distance(__first, __last,
+        __iterator_category(__first));
     }
 
   template<typename _InputIterator, typename _Distance>
@@ -6403,7 +6403,7 @@ namespace std
     {
 
       typename iterator_traits<_InputIterator>::difference_type __d = __n;
-      std::__advance(__i, __d, std::__iterator_category(__i));
+      __advance(__i, __d, __iterator_category(__i));
     }
 
 
@@ -6415,7 +6415,7 @@ namespace std
     {
 
      
-      std::advance(__x, __n);
+      advance(__x, __n);
       return __x;
     }
 
@@ -6427,7 +6427,7 @@ namespace std
 
      
 
-      std::advance(__x, -__n);
+      advance(__x, -__n);
       return __x;
     }
 
@@ -6545,7 +6545,7 @@ namespace std
 
       static pointer
       pointer_to(__make_not_void<element_type>& __r) noexcept
-      { return std::addressof(__r); }
+      { return addressof(__r); }
     };
 
 
@@ -6556,15 +6556,15 @@ namespace std
     constexpr _Tp*
     __to_address(_Tp* __ptr) noexcept
     {
-      static_assert(!std::is_function<_Tp>::value, "not a function pointer");
+      static_assert(!is_function<_Tp>::value, "not a function pointer");
       return __ptr;
     }
 
 
   template<typename _Ptr>
-    constexpr typename std::pointer_traits<_Ptr>::element_type*
+    constexpr typename pointer_traits<_Ptr>::element_type*
     __to_address(const _Ptr& __ptr)
-    { return std::__to_address(__ptr.operator->()); }
+    { return __to_address(__ptr.operator->()); }
 # 198 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ptr_traits.h" 3
 
 }
@@ -6895,7 +6895,7 @@ namespace std
 
       explicit
       back_insert_iterator(_Container& __x)
-      : container(std::__addressof(__x)) { }
+      : container(__addressof(__x)) { }
 # 486 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h" 3
       back_insert_iterator&
       operator=(const typename _Container::value_type& __value)
@@ -6907,7 +6907,7 @@ namespace std
       back_insert_iterator&
       operator=(typename _Container::value_type&& __value)
       {
- container->push_back(std::move(__value));
+ container->push_back(move(__value));
  return *this;
       }
 
@@ -6946,7 +6946,7 @@ namespace std
 
 
       explicit front_insert_iterator(_Container& __x)
-      : container(std::__addressof(__x)) { }
+      : container(__addressof(__x)) { }
 # 577 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h" 3
       front_insert_iterator&
       operator=(const typename _Container::value_type& __value)
@@ -6958,7 +6958,7 @@ namespace std
       front_insert_iterator&
       operator=(typename _Container::value_type&& __value)
       {
- container->push_front(std::move(__value));
+ container->push_front(move(__value));
  return *this;
       }
 
@@ -7001,7 +7001,7 @@ namespace std
 
 
       insert_iterator(_Container& __x, typename _Container::iterator __i)
-      : container(std::__addressof(__x)), iter(__i) {}
+      : container(__addressof(__x)), iter(__i) {}
 # 689 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h" 3
       insert_iterator&
       operator=(const typename _Container::value_type& __value)
@@ -7014,7 +7014,7 @@ namespace std
       insert_iterator&
       operator=(typename _Container::value_type&& __value)
       {
- iter = container->insert(iter, std::move(__value));
+ iter = container->insert(iter, move(__value));
  ++iter;
  return *this;
       }
@@ -7053,8 +7053,8 @@ namespace __gnu_cxx
 {
 
 # 758 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h" 3
-  using std::iterator_traits;
-  using std::iterator;
+  using iterator_traits;
+  using iterator;
   template<typename _Iterator, typename _Container>
     class __normal_iterator
     {
@@ -7082,7 +7082,7 @@ namespace __gnu_cxx
       template<typename _Iter>
         __normal_iterator(const __normal_iterator<_Iter,
      typename __enable_if<
-              (std::__are_same<_Iter, typename _Container::pointer>::__value),
+              (__are_same<_Iter, typename _Container::pointer>::__value),
         _Container>::__type>& __i) noexcept
         : _M_current(__i.base()) { }
 
@@ -7374,7 +7374,7 @@ namespace std
 
       reference
       operator[](difference_type __n) const
-      { return std::move(_M_current[__n]); }
+      { return move(_M_current[__n]); }
     };
 
 
@@ -7525,7 +7525,7 @@ namespace std
 
 namespace __gnu_debug
 {
-  using namespace std::__debug;
+  using namespace __debug;
 }
 # 70 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 2 3
 
@@ -7634,7 +7634,7 @@ namespace __ops
 
       explicit constexpr
       _Iter_comp_iter(_Compare __comp)
- : _M_comp(std::move(__comp))
+ : _M_comp(move(__comp))
       { }
 
       template<typename _Iterator1, typename _Iterator2>
@@ -7648,7 +7648,7 @@ namespace __ops
     constexpr
     inline _Iter_comp_iter<_Compare>
     __iter_comp_iter(_Compare __comp)
-    { return _Iter_comp_iter<_Compare>(std::move(__comp)); }
+    { return _Iter_comp_iter<_Compare>(move(__comp)); }
 
   template<typename _Compare>
     struct _Iter_comp_val
@@ -7657,7 +7657,7 @@ namespace __ops
 
       explicit
       _Iter_comp_val(_Compare __comp)
- : _M_comp(std::move(__comp))
+ : _M_comp(move(__comp))
       { }
 
       explicit
@@ -7668,7 +7668,7 @@ namespace __ops
 
       explicit
       _Iter_comp_val(_Iter_comp_iter<_Compare>&& __comp)
- : _M_comp(std::move(__comp._M_comp))
+ : _M_comp(move(__comp._M_comp))
       { }
 
 
@@ -7681,12 +7681,12 @@ namespace __ops
   template<typename _Compare>
    inline _Iter_comp_val<_Compare>
     __iter_comp_val(_Compare __comp)
-    { return _Iter_comp_val<_Compare>(std::move(__comp)); }
+    { return _Iter_comp_val<_Compare>(move(__comp)); }
 
   template<typename _Compare>
     inline _Iter_comp_val<_Compare>
     __iter_comp_val(_Iter_comp_iter<_Compare> __comp)
-    { return _Iter_comp_val<_Compare>(std::move(__comp)); }
+    { return _Iter_comp_val<_Compare>(move(__comp)); }
 
   template<typename _Compare>
     struct _Val_comp_iter
@@ -7695,7 +7695,7 @@ namespace __ops
 
       explicit
       _Val_comp_iter(_Compare __comp)
- : _M_comp(std::move(__comp))
+ : _M_comp(move(__comp))
       { }
 
       explicit
@@ -7706,7 +7706,7 @@ namespace __ops
 
       explicit
       _Val_comp_iter(_Iter_comp_iter<_Compare>&& __comp)
- : _M_comp(std::move(__comp._M_comp))
+ : _M_comp(move(__comp._M_comp))
       { }
 
 
@@ -7719,12 +7719,12 @@ namespace __ops
   template<typename _Compare>
     inline _Val_comp_iter<_Compare>
     __val_comp_iter(_Compare __comp)
-    { return _Val_comp_iter<_Compare>(std::move(__comp)); }
+    { return _Val_comp_iter<_Compare>(move(__comp)); }
 
   template<typename _Compare>
     inline _Val_comp_iter<_Compare>
     __val_comp_iter(_Iter_comp_iter<_Compare> __comp)
-    { return _Val_comp_iter<_Compare>(std::move(__comp)); }
+    { return _Val_comp_iter<_Compare>(move(__comp)); }
 
   template<typename _Value>
     struct _Iter_equals_val
@@ -7775,7 +7775,7 @@ namespace __ops
 
       explicit
       _Iter_pred(_Predicate __pred)
- : _M_pred(std::move(__pred))
+ : _M_pred(move(__pred))
       { }
 
       template<typename _Iterator>
@@ -7787,7 +7787,7 @@ namespace __ops
   template<typename _Predicate>
     inline _Iter_pred<_Predicate>
     __pred_iter(_Predicate __pred)
-    { return _Iter_pred<_Predicate>(std::move(__pred)); }
+    { return _Iter_pred<_Predicate>(move(__pred)); }
 
   template<typename _Compare, typename _Value>
     struct _Iter_comp_to_val
@@ -7796,7 +7796,7 @@ namespace __ops
       _Value& _M_value;
 
       _Iter_comp_to_val(_Compare __comp, _Value& __value)
- : _M_comp(std::move(__comp)), _M_value(__value)
+ : _M_comp(move(__comp)), _M_value(__value)
       { }
 
       template<typename _Iterator>
@@ -7809,7 +7809,7 @@ namespace __ops
     _Iter_comp_to_val<_Compare, _Value>
     __iter_comp_val(_Compare __comp, _Value &__val)
     {
-      return _Iter_comp_to_val<_Compare, _Value>(std::move(__comp), __val);
+      return _Iter_comp_to_val<_Compare, _Value>(move(__comp), __val);
     }
 
   template<typename _Compare, typename _Iterator1>
@@ -7819,7 +7819,7 @@ namespace __ops
       _Iterator1 _M_it1;
 
       _Iter_comp_to_iter(_Compare __comp, _Iterator1 __it1)
- : _M_comp(std::move(__comp)), _M_it1(__it1)
+ : _M_comp(move(__comp)), _M_it1(__it1)
       { }
 
       template<typename _Iterator2>
@@ -7833,7 +7833,7 @@ namespace __ops
     __iter_comp_iter(_Iter_comp_iter<_Compare> __comp, _Iterator __it)
     {
       return _Iter_comp_to_iter<_Compare, _Iterator>(
-   std::move(__comp._M_comp), __it);
+   move(__comp._M_comp), __it);
     }
 
   template<typename _Predicate>
@@ -7843,7 +7843,7 @@ namespace __ops
 
       explicit
       _Iter_negate(_Predicate __pred)
- : _M_pred(std::move(__pred))
+ : _M_pred(move(__pred))
       { }
 
       template<typename _Iterator>
@@ -7855,7 +7855,7 @@ namespace __ops
   template<typename _Predicate>
     inline _Iter_negate<_Predicate>
     __negate(_Iter_pred<_Predicate> __pred)
-    { return _Iter_negate<_Predicate>(std::move(__pred._M_pred)); }
+    { return _Iter_negate<_Predicate>(move(__pred._M_pred)); }
 
 }
 }
@@ -7891,7 +7891,7 @@ namespace std
       ;
 
       for (; __first1 != __last1; ++__first1, (void)++__first2)
- std::iter_swap(__first1, __first2);
+ iter_swap(__first1, __first2);
       return __first2;
     }
 # 192 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
@@ -7978,7 +7978,7 @@ namespace std
  __copy_m(_II __first, _II __last, _OI __result)
  {
    for (; __first != __last; ++__result, (void)++__first)
-     *__result = std::move(*__first);
+     *__result = move(*__first);
    return __result;
  }
     };
@@ -8013,7 +8013,7 @@ namespace std
    typedef typename iterator_traits<_II>::difference_type _Distance;
    for(_Distance __n = __last - __first; __n > 0; --__n)
      {
-       *__result = std::move(*__first);
+       *__result = move(*__first);
        ++__first;
        ++__result;
      }
@@ -8055,7 +8055,7 @@ namespace std
         && __is_pointer<_OI>::__value
         && __are_same<_ValueTypeI, _ValueTypeO>::__value);
 
-      return std::__copy_move<_IsMove, __simple,
+      return __copy_move<_IsMove, __simple,
          _Category>::__copy_m(__first, __last, __result);
     }
 
@@ -8092,9 +8092,9 @@ namespace std
     inline _OI
     __copy_move_a2(_II __first, _II __last, _OI __result)
     {
-      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
-          std::__niter_base(__last),
-          std::__niter_base(__result)));
+      return _OI(__copy_move_a<_IsMove>(__niter_base(__first),
+          __niter_base(__last),
+          __niter_base(__result)));
     }
 # 444 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
   template<typename _II, typename _OI>
@@ -8107,8 +8107,8 @@ namespace std
 
       ;
 
-      return (std::__copy_move_a2<__is_move_iterator<_II>::__value>
-       (std::__miter_base(__first), std::__miter_base(__last),
+      return (__copy_move_a2<__is_move_iterator<_II>::__value>
+       (__miter_base(__first), __miter_base(__last),
         __result));
     }
 # 477 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
@@ -8122,8 +8122,8 @@ namespace std
 
       ;
 
-      return std::__copy_move_a2<true>(std::__miter_base(__first),
-           std::__miter_base(__last), __result);
+      return __copy_move_a2<true>(__miter_base(__first),
+           __miter_base(__last), __result);
     }
 
 
@@ -8153,7 +8153,7 @@ namespace std
  __copy_move_b(_BI1 __first, _BI1 __last, _BI2 __result)
  {
    while (__first != __last)
-     *--__result = std::move(*--__last);
+     *--__result = move(*--__last);
    return __result;
  }
     };
@@ -8183,7 +8183,7 @@ namespace std
  {
    typename iterator_traits<_BI1>::difference_type __n;
    for (__n = __last - __first; __n > 0; --__n)
-     *--__result = std::move(*--__last);
+     *--__result = move(*--__last);
    return __result;
  }
     };
@@ -8222,7 +8222,7 @@ namespace std
         && __is_pointer<_BI2>::__value
         && __are_same<_ValueType1, _ValueType2>::__value);
 
-      return std::__copy_move_backward<_IsMove, __simple,
+      return __copy_move_backward<_IsMove, __simple,
            _Category>::__copy_move_b(__first,
          __last,
          __result);
@@ -8232,9 +8232,9 @@ namespace std
     inline _BI2
     __copy_move_backward_a2(_BI1 __first, _BI1 __last, _BI2 __result)
     {
-      return _BI2(std::__copy_move_backward_a<_IsMove>
-    (std::__niter_base(__first), std::__niter_base(__last),
-     std::__niter_base(__result)));
+      return _BI2(__copy_move_backward_a<_IsMove>
+    (__niter_base(__first), __niter_base(__last),
+     __niter_base(__result)));
     }
 # 620 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
   template<typename _BI1, typename _BI2>
@@ -8249,8 +8249,8 @@ namespace std
 
       ;
 
-      return (std::__copy_move_backward_a2<__is_move_iterator<_BI1>::__value>
-       (std::__miter_base(__first), std::__miter_base(__last),
+      return (__copy_move_backward_a2<__is_move_iterator<_BI1>::__value>
+       (__miter_base(__first), __miter_base(__last),
         __result));
     }
 # 656 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
@@ -8266,8 +8266,8 @@ namespace std
 
       ;
 
-      return std::__copy_move_backward_a2<true>(std::__miter_base(__first),
-      std::__miter_base(__last),
+      return __copy_move_backward_a2<true>(__miter_base(__first),
+      __miter_base(__last),
       __result);
     }
 
@@ -8317,7 +8317,7 @@ namespace std
 
       ;
 
-      std::__fill_a(std::__niter_base(__first), std::__niter_base(__last),
+      __fill_a(__niter_base(__first), __niter_base(__last),
       __value);
     }
 
@@ -8349,7 +8349,7 @@ namespace std
     __gnu_cxx::__enable_if<__is_byte<_Tp>::__value, _Tp*>::__type
     __fill_n_a(_Tp* __first, _Size __n, const _Tp& __c)
     {
-      std::__fill_a(__first, __first + __n, __c);
+      __fill_a(__first, __first + __n, __c);
       return __first + __n;
     }
 # 782 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
@@ -8360,7 +8360,7 @@ namespace std
 
      
 
-      return _OI(std::__fill_n_a(std::__niter_base(__first), __n, __value));
+      return _OI(__fill_n_a(__niter_base(__first), __n, __value));
     }
 
   template<bool _BoolType>
@@ -8402,7 +8402,7 @@ namespace std
         && __is_pointer<_II2>::__value
         && __are_same<_ValueType1, _ValueType2>::__value);
 
-      return std::__equal<__simple>::equal(__first1, __last1, __first2);
+      return __equal<__simple>::equal(__first1, __last1, __first2);
     }
 
   template<typename, typename>
@@ -8448,7 +8448,7 @@ namespace std
     {
       typedef typename iterator_traits<_II1>::iterator_category _Category1;
       typedef typename iterator_traits<_II2>::iterator_category _Category2;
-      typedef std::__lc_rai<_Category1, _Category2> __rai_type;
+      typedef __lc_rai<_Category1, _Category2> __rai_type;
 
       __last1 = __rai_type::__newlast1(__first1, __last1, __first2, __last2);
       for (; __first1 != __last1 && __rai_type::__cnd2(__first2, __last2);
@@ -8475,7 +8475,7 @@ namespace std
       __lexicographical_compare<_BoolType>::
       __lc(_II1 __first1, _II1 __last1, _II2 __first2, _II2 __last2)
       {
- return std::__lexicographical_compare_impl(__first1, __last1,
+ return __lexicographical_compare_impl(__first1, __last1,
          __first2, __last2,
      __gnu_cxx::__ops::__iter_less_iter());
       }
@@ -8490,7 +8490,7 @@ namespace std
  {
    const size_t __len1 = __last1 - __first1;
    const size_t __len2 = __last2 - __first2;
-   if (const size_t __len = std::min(__len1, __len2))
+   if (const size_t __len = min(__len1, __len2))
      if (int __result = __builtin_memcmp(__first1, __first2, __len))
        return __result < 0;
    return __len1 < __len2;
@@ -8511,7 +8511,7 @@ namespace std
   && __is_pointer<_II1>::__value
   && __is_pointer<_II2>::__value);
 
-      return std::__lexicographical_compare<__simple>::__lc(__first1, __last1,
+      return __lexicographical_compare<__simple>::__lc(__first1, __last1,
            __first2, __last2);
     }
 
@@ -8523,13 +8523,13 @@ namespace std
       typedef typename iterator_traits<_ForwardIterator>::difference_type
  _DistanceType;
 
-      _DistanceType __len = std::distance(__first, __last);
+      _DistanceType __len = distance(__first, __last);
 
       while (__len > 0)
  {
    _DistanceType __half = __len >> 1;
    _ForwardIterator __middle = __first;
-   std::advance(__middle, __half);
+   advance(__middle, __half);
    if (__comp(__middle, __val))
      {
        __first = __middle;
@@ -8553,7 +8553,7 @@ namespace std
 
       ;
 
-      return std::__lower_bound(__first, __last, __val,
+      return __lower_bound(__first, __last, __val,
     __gnu_cxx::__ops::__iter_less_val());
     }
 
@@ -8597,9 +8597,9 @@ namespace std
 
       ;
 
-      return std::__equal_aux(std::__niter_base(__first1),
-         std::__niter_base(__last1),
-         std::__niter_base(__first2));
+      return __equal_aux(__niter_base(__first1),
+         __niter_base(__last1),
+         __niter_base(__first2));
     }
 # 1069 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
   template<typename _IIter1, typename _IIter2, typename _BinaryPredicate>
@@ -8630,11 +8630,11 @@ namespace std
       using _RAIters = __and_<is_same<_Cat1, _RATag>, is_same<_Cat2, _RATag>>;
       if (_RAIters())
  {
-   auto __d1 = std::distance(__first1, __last1);
-   auto __d2 = std::distance(__first2, __last2);
+   auto __d1 = distance(__first1, __last1);
+   auto __d2 = distance(__first2, __last2);
    if (__d1 != __d2)
      return false;
-   return std::equal(__first1, __last1, __first2);
+   return equal(__first1, __last1, __first2);
  }
 
       for (; __first1 != __last1 && __first2 != __last2;
@@ -8656,11 +8656,11 @@ namespace std
       using _RAIters = __and_<is_same<_Cat1, _RATag>, is_same<_Cat2, _RATag>>;
       if (_RAIters())
  {
-   auto __d1 = std::distance(__first1, __last1);
-   auto __d2 = std::distance(__first2, __last2);
+   auto __d1 = distance(__first1, __last1);
+   auto __d2 = distance(__first2, __last2);
    if (__d1 != __d2)
      return false;
-   return std::equal(__first1, __last1, __first2,
+   return equal(__first1, __last1, __first2,
            __binary_pred);
  }
 
@@ -8684,7 +8684,7 @@ namespace std
       ;
       ;
 
-      return std::__equal4(__first1, __last1, __first2, __last2);
+      return __equal4(__first1, __last1, __first2, __last2);
     }
 # 1188 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
   template<typename _IIter1, typename _IIter2, typename _BinaryPredicate>
@@ -8698,7 +8698,7 @@ namespace std
       ;
       ;
 
-      return std::__equal4(__first1, __last1, __first2, __last2,
+      return __equal4(__first1, __last1, __first2, __last2,
           __binary_pred);
     }
 # 1219 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
@@ -8719,10 +8719,10 @@ namespace std
       ;
       ;
 
-      return std::__lexicographical_compare_aux(std::__niter_base(__first1),
-      std::__niter_base(__last1),
-      std::__niter_base(__first2),
-      std::__niter_base(__last2));
+      return __lexicographical_compare_aux(__niter_base(__first1),
+      __niter_base(__last1),
+      __niter_base(__first2),
+      __niter_base(__last2));
     }
 # 1255 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
   template<typename _II1, typename _II2, typename _Compare>
@@ -8736,7 +8736,7 @@ namespace std
       ;
       ;
 
-      return std::__lexicographical_compare_impl
+      return __lexicographical_compare_impl
  (__first1, __last1, __first2, __last2,
   __gnu_cxx::__ops::__iter_comp_iter(__comp));
     }
@@ -8768,7 +8768,7 @@ namespace std
 
       ;
 
-      return std::__mismatch(__first1, __last1, __first2,
+      return __mismatch(__first1, __last1, __first2,
         __gnu_cxx::__ops::__iter_equal_to_iter());
     }
 # 1331 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
@@ -8783,7 +8783,7 @@ namespace std
      
       ;
 
-      return std::__mismatch(__first1, __last1, __first2,
+      return __mismatch(__first1, __last1, __first2,
  __gnu_cxx::__ops::__iter_comp_iter(__binary_pred));
     }
 
@@ -8819,7 +8819,7 @@ namespace std
       ;
       ;
 
-      return std::__mismatch(__first1, __last1, __first2, __last2,
+      return __mismatch(__first1, __last1, __first2, __last2,
         __gnu_cxx::__ops::__iter_equal_to_iter());
     }
 # 1413 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h" 3
@@ -8836,7 +8836,7 @@ namespace std
       ;
       ;
 
-      return std::__mismatch(__first1, __last1, __first2, __last2,
+      return __mismatch(__first1, __last1, __first2, __last2,
         __gnu_cxx::__ops::__iter_comp_iter(__binary_pred));
     }
 
@@ -8864,9 +8864,9 @@ namespace __gnu_cxx
     struct _Char_types
     {
       typedef unsigned long int_type;
-      typedef std::streampos pos_type;
-      typedef std::streamoff off_type;
-      typedef std::mbstate_t state_type;
+      typedef streampos pos_type;
+      typedef streamoff off_type;
+      typedef mbstate_t state_type;
     };
 # 86 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/char_traits.h" 3
   template<typename _CharT>
@@ -8891,22 +8891,22 @@ namespace __gnu_cxx
       { return __c1 < __c2; }
 
       static constexpr int
-      compare(const char_type* __s1, const char_type* __s2, std::size_t __n);
+      compare(const char_type* __s1, const char_type* __s2, size_t __n);
 
-      static constexpr std::size_t
+      static constexpr size_t
       length(const char_type* __s);
 
       static constexpr const char_type*
-      find(const char_type* __s, std::size_t __n, const char_type& __a);
+      find(const char_type* __s, size_t __n, const char_type& __a);
 
       static char_type*
-      move(char_type* __s1, const char_type* __s2, std::size_t __n);
+      move(char_type* __s1, const char_type* __s2, size_t __n);
 
       static char_type*
-      copy(char_type* __s1, const char_type* __s2, std::size_t __n);
+      copy(char_type* __s1, const char_type* __s2, size_t __n);
 
       static char_type*
-      assign(char_type* __s, std::size_t __n, char_type __a);
+      assign(char_type* __s, size_t __n, char_type __a);
 
       static constexpr char_type
       to_char_type(const int_type& __c)
@@ -8934,9 +8934,9 @@ namespace __gnu_cxx
   template<typename _CharT>
     constexpr int
     char_traits<_CharT>::
-    compare(const char_type* __s1, const char_type* __s2, std::size_t __n)
+    compare(const char_type* __s1, const char_type* __s2, size_t __n)
     {
-      for (std::size_t __i = 0; __i < __n; ++__i)
+      for (size_t __i = 0; __i < __n; ++__i)
  if (lt(__s1[__i], __s2[__i]))
    return -1;
  else if (lt(__s2[__i], __s1[__i]))
@@ -8945,11 +8945,11 @@ namespace __gnu_cxx
     }
 
   template<typename _CharT>
-    constexpr std::size_t
+    constexpr size_t
     char_traits<_CharT>::
     length(const char_type* __p)
     {
-      std::size_t __i = 0;
+      size_t __i = 0;
       while (!eq(__p[__i], char_type()))
         ++__i;
       return __i;
@@ -8958,9 +8958,9 @@ namespace __gnu_cxx
   template<typename _CharT>
     constexpr const typename char_traits<_CharT>::char_type*
     char_traits<_CharT>::
-    find(const char_type* __s, std::size_t __n, const char_type& __a)
+    find(const char_type* __s, size_t __n, const char_type& __a)
     {
-      for (std::size_t __i = 0; __i < __n; ++__i)
+      for (size_t __i = 0; __i < __n; ++__i)
         if (eq(__s[__i], __a))
           return __s + __i;
       return 0;
@@ -8969,7 +8969,7 @@ namespace __gnu_cxx
   template<typename _CharT>
     typename char_traits<_CharT>::char_type*
     char_traits<_CharT>::
-    move(char_type* __s1, const char_type* __s2, std::size_t __n)
+    move(char_type* __s1, const char_type* __s2, size_t __n)
     {
       return static_cast<_CharT*>(__builtin_memmove(__s1, __s2,
           __n * sizeof(char_type)));
@@ -8978,20 +8978,20 @@ namespace __gnu_cxx
   template<typename _CharT>
     typename char_traits<_CharT>::char_type*
     char_traits<_CharT>::
-    copy(char_type* __s1, const char_type* __s2, std::size_t __n)
+    copy(char_type* __s1, const char_type* __s2, size_t __n)
     {
 
-      std::copy(__s2, __s2 + __n, __s1);
+      copy(__s2, __s2 + __n, __s1);
       return __s1;
     }
 
   template<typename _CharT>
     typename char_traits<_CharT>::char_type*
     char_traits<_CharT>::
-    assign(char_type* __s, std::size_t __n, char_type __a)
+    assign(char_type* __s, size_t __n, char_type __a)
     {
 
-      std::fill_n(__s, __n, __a);
+      fill_n(__s, __n, __a);
       return __s;
     }
 
@@ -10085,14 +10085,14 @@ namespace std
      const int __size __attribute__((__unused__)),
      const char* __fmt, ...)
   {
-    char* __old = std::setlocale(4, 0);
+    char* __old = setlocale(4, 0);
     char* __sav = 0;
     if (__builtin_strcmp(__old, "C"))
       {
  const size_t __len = __builtin_strlen(__old) + 1;
  __sav = new char[__len];
  __builtin_memcpy(__sav, __old, __len);
- std::setlocale(4, "C");
+ setlocale(4, "C");
       }
 
     __builtin_va_list __args;
@@ -10108,7 +10108,7 @@ namespace std
 
     if (__sav)
       {
- std::setlocale(4, __sav);
+ setlocale(4, __sav);
  delete [] __sav;
       }
     return __ret;
@@ -10665,8 +10665,8 @@ namespace __gnu_cxx
 {
 
 
-  using std::size_t;
-  using std::ptrdiff_t;
+  using size_t;
+  using ptrdiff_t;
 # 57 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ext/new_allocator.h" 3
   template<typename _Tp>
     class new_allocator
@@ -10687,7 +10687,7 @@ namespace __gnu_cxx
 
 
 
-      typedef std::true_type propagate_on_container_move_assignment;
+      typedef true_type propagate_on_container_move_assignment;
 
 
       new_allocator() noexcept { }
@@ -10701,11 +10701,11 @@ namespace __gnu_cxx
 
       pointer
       address(reference __x) const noexcept
-      { return std::__addressof(__x); }
+      { return __addressof(__x); }
 
       const_pointer
       address(const_reference __x) const noexcept
-      { return std::__addressof(__x); }
+      { return __addressof(__x); }
 
 
 
@@ -10713,7 +10713,7 @@ namespace __gnu_cxx
       allocate(size_type __n, const void* = static_cast<const void*>(0))
       {
  if (__n > this->SIZE())
-   std::__throw_bad_alloc();
+   __throw_bad_alloc();
 # 111 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ext/new_allocator.h" 3
  return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
       }
@@ -10740,7 +10740,7 @@ namespace __gnu_cxx
       template<typename _Up, typename... _Args>
  void
  construct(_Up* __p, _Args&&... __args)
- { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+ { ::new((void *)__p) _Up(forward<_Args>(__args)...); }
 
       template<typename _Up>
  void
@@ -10805,7 +10805,7 @@ namespace std
       template<typename _Up, typename... _Args>
  void
  construct(_Up* __p, _Args&&... __args)
- { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+ { ::new((void *)__p) _Up(forward<_Args>(__args)...); }
 
       template<typename _Up>
  void
@@ -11235,9 +11235,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) + std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) + std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) + std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) + forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) + forward<_Up>(__u))
+ { return forward<_Tp>(__t) + forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11250,9 +11250,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) - std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) - std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) - std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) - forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) - forward<_Up>(__u))
+ { return forward<_Tp>(__t) - forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11265,9 +11265,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) * std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) * std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) * std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) * forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) * forward<_Up>(__u))
+ { return forward<_Tp>(__t) * forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11280,9 +11280,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) / std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) / std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) / std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) / forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) / forward<_Up>(__u))
+ { return forward<_Tp>(__t) / forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11295,9 +11295,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) % std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) % std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) % std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) % forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) % forward<_Up>(__u))
+ { return forward<_Tp>(__t) % forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11310,9 +11310,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t) const
- noexcept(noexcept(-std::forward<_Tp>(__t)))
- -> decltype(-std::forward<_Tp>(__t))
- { return -std::forward<_Tp>(__t); }
+ noexcept(noexcept(-forward<_Tp>(__t)))
+ -> decltype(-forward<_Tp>(__t))
+ { return -forward<_Tp>(__t); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11456,9 +11456,9 @@ namespace std
       template <typename _Tp, typename _Up>
  constexpr auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) == std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) == std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) == std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) == forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) == forward<_Up>(__u))
+ { return forward<_Tp>(__t) == forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11470,9 +11470,9 @@ namespace std
       template <typename _Tp, typename _Up>
  constexpr auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) != std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) != std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) != std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) != forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) != forward<_Up>(__u))
+ { return forward<_Tp>(__t) != forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11484,10 +11484,10 @@ namespace std
       template <typename _Tp, typename _Up>
  constexpr auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) > std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) > std::forward<_Up>(__u))
+ noexcept(noexcept(forward<_Tp>(__t) > forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) > forward<_Up>(__u))
  {
-   return _S_cmp(std::forward<_Tp>(__t), std::forward<_Up>(__u),
+   return _S_cmp(forward<_Tp>(__t), forward<_Up>(__u),
    __ptr_cmp<_Tp, _Up>{});
  }
 
@@ -11502,15 +11502,15 @@ namespace std
       template <typename _Tp, typename _Up>
  static constexpr decltype(auto)
  _S_cmp(_Tp&& __t, _Up&& __u, false_type)
- { return std::forward<_Tp>(__t) > std::forward<_Up>(__u); }
+ { return forward<_Tp>(__t) > forward<_Up>(__u); }
 
       template <typename _Tp, typename _Up>
  static constexpr bool
  _S_cmp(_Tp&& __t, _Up&& __u, true_type) noexcept
  {
    return greater<const volatile void*>{}(
-       static_cast<const volatile void*>(std::forward<_Tp>(__t)),
-       static_cast<const volatile void*>(std::forward<_Up>(__u)));
+       static_cast<const volatile void*>(forward<_Tp>(__t)),
+       static_cast<const volatile void*>(forward<_Up>(__u)));
  }
 
 
@@ -11520,7 +11520,7 @@ namespace std
 
       template<typename _Tp, typename _Up>
  struct __not_overloaded2<_Tp, _Up, __void_t<
-   decltype(std::declval<_Tp>().operator>(std::declval<_Up>()))>>
+   decltype(declval<_Tp>().operator>(declval<_Up>()))>>
  : false_type { };
 
 
@@ -11530,7 +11530,7 @@ namespace std
 
       template<typename _Tp, typename _Up>
  struct __not_overloaded<_Tp, _Up, __void_t<
-   decltype(operator>(std::declval<_Tp>(), std::declval<_Up>()))>>
+   decltype(operator>(declval<_Tp>(), declval<_Up>()))>>
  : false_type { };
 
       template<typename _Tp, typename _Up>
@@ -11546,10 +11546,10 @@ namespace std
       template <typename _Tp, typename _Up>
  constexpr auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) < std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) < std::forward<_Up>(__u))
+ noexcept(noexcept(forward<_Tp>(__t) < forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) < forward<_Up>(__u))
  {
-   return _S_cmp(std::forward<_Tp>(__t), std::forward<_Up>(__u),
+   return _S_cmp(forward<_Tp>(__t), forward<_Up>(__u),
    __ptr_cmp<_Tp, _Up>{});
  }
 
@@ -11564,15 +11564,15 @@ namespace std
       template <typename _Tp, typename _Up>
  static constexpr decltype(auto)
  _S_cmp(_Tp&& __t, _Up&& __u, false_type)
- { return std::forward<_Tp>(__t) < std::forward<_Up>(__u); }
+ { return forward<_Tp>(__t) < forward<_Up>(__u); }
 
       template <typename _Tp, typename _Up>
  static constexpr bool
  _S_cmp(_Tp&& __t, _Up&& __u, true_type) noexcept
  {
    return less<const volatile void*>{}(
-       static_cast<const volatile void*>(std::forward<_Tp>(__t)),
-       static_cast<const volatile void*>(std::forward<_Up>(__u)));
+       static_cast<const volatile void*>(forward<_Tp>(__t)),
+       static_cast<const volatile void*>(forward<_Up>(__u)));
  }
 
 
@@ -11582,7 +11582,7 @@ namespace std
 
       template<typename _Tp, typename _Up>
  struct __not_overloaded2<_Tp, _Up, __void_t<
-   decltype(std::declval<_Tp>().operator<(std::declval<_Up>()))>>
+   decltype(declval<_Tp>().operator<(declval<_Up>()))>>
  : false_type { };
 
 
@@ -11592,7 +11592,7 @@ namespace std
 
       template<typename _Tp, typename _Up>
  struct __not_overloaded<_Tp, _Up, __void_t<
-   decltype(operator<(std::declval<_Tp>(), std::declval<_Up>()))>>
+   decltype(operator<(declval<_Tp>(), declval<_Up>()))>>
  : false_type { };
 
       template<typename _Tp, typename _Up>
@@ -11608,10 +11608,10 @@ namespace std
       template <typename _Tp, typename _Up>
  constexpr auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) >= std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) >= std::forward<_Up>(__u))
+ noexcept(noexcept(forward<_Tp>(__t) >= forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) >= forward<_Up>(__u))
  {
-   return _S_cmp(std::forward<_Tp>(__t), std::forward<_Up>(__u),
+   return _S_cmp(forward<_Tp>(__t), forward<_Up>(__u),
    __ptr_cmp<_Tp, _Up>{});
  }
 
@@ -11626,15 +11626,15 @@ namespace std
       template <typename _Tp, typename _Up>
  static constexpr decltype(auto)
  _S_cmp(_Tp&& __t, _Up&& __u, false_type)
- { return std::forward<_Tp>(__t) >= std::forward<_Up>(__u); }
+ { return forward<_Tp>(__t) >= forward<_Up>(__u); }
 
       template <typename _Tp, typename _Up>
  static constexpr bool
  _S_cmp(_Tp&& __t, _Up&& __u, true_type) noexcept
  {
    return greater_equal<const volatile void*>{}(
-       static_cast<const volatile void*>(std::forward<_Tp>(__t)),
-       static_cast<const volatile void*>(std::forward<_Up>(__u)));
+       static_cast<const volatile void*>(forward<_Tp>(__t)),
+       static_cast<const volatile void*>(forward<_Up>(__u)));
  }
 
 
@@ -11644,7 +11644,7 @@ namespace std
 
       template<typename _Tp, typename _Up>
  struct __not_overloaded2<_Tp, _Up, __void_t<
-   decltype(std::declval<_Tp>().operator>=(std::declval<_Up>()))>>
+   decltype(declval<_Tp>().operator>=(declval<_Up>()))>>
  : false_type { };
 
 
@@ -11654,7 +11654,7 @@ namespace std
 
       template<typename _Tp, typename _Up>
  struct __not_overloaded<_Tp, _Up, __void_t<
-   decltype(operator>=(std::declval<_Tp>(), std::declval<_Up>()))>>
+   decltype(operator>=(declval<_Tp>(), declval<_Up>()))>>
  : false_type { };
 
       template<typename _Tp, typename _Up>
@@ -11670,10 +11670,10 @@ namespace std
       template <typename _Tp, typename _Up>
  constexpr auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) <= std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) <= std::forward<_Up>(__u))
+ noexcept(noexcept(forward<_Tp>(__t) <= forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) <= forward<_Up>(__u))
  {
-   return _S_cmp(std::forward<_Tp>(__t), std::forward<_Up>(__u),
+   return _S_cmp(forward<_Tp>(__t), forward<_Up>(__u),
    __ptr_cmp<_Tp, _Up>{});
  }
 
@@ -11688,15 +11688,15 @@ namespace std
       template <typename _Tp, typename _Up>
  static constexpr decltype(auto)
  _S_cmp(_Tp&& __t, _Up&& __u, false_type)
- { return std::forward<_Tp>(__t) <= std::forward<_Up>(__u); }
+ { return forward<_Tp>(__t) <= forward<_Up>(__u); }
 
       template <typename _Tp, typename _Up>
  static constexpr bool
  _S_cmp(_Tp&& __t, _Up&& __u, true_type) noexcept
  {
    return less_equal<const volatile void*>{}(
-       static_cast<const volatile void*>(std::forward<_Tp>(__t)),
-       static_cast<const volatile void*>(std::forward<_Up>(__u)));
+       static_cast<const volatile void*>(forward<_Tp>(__t)),
+       static_cast<const volatile void*>(forward<_Up>(__u)));
  }
 
 
@@ -11706,7 +11706,7 @@ namespace std
 
       template<typename _Tp, typename _Up>
  struct __not_overloaded2<_Tp, _Up, __void_t<
-   decltype(std::declval<_Tp>().operator<=(std::declval<_Up>()))>>
+   decltype(declval<_Tp>().operator<=(declval<_Up>()))>>
  : false_type { };
 
 
@@ -11716,7 +11716,7 @@ namespace std
 
       template<typename _Tp, typename _Up>
  struct __not_overloaded<_Tp, _Up, __void_t<
-   decltype(operator<=(std::declval<_Tp>(), std::declval<_Up>()))>>
+   decltype(operator<=(declval<_Tp>(), declval<_Up>()))>>
  : false_type { };
 
       template<typename _Tp, typename _Up>
@@ -11774,9 +11774,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) && std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) && std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) && std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) && forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) && forward<_Up>(__u))
+ { return forward<_Tp>(__t) && forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11789,9 +11789,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) || std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) || std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) || std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) || forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) || forward<_Up>(__u))
+ { return forward<_Tp>(__t) || forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11804,9 +11804,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t) const
- noexcept(noexcept(!std::forward<_Tp>(__t)))
- -> decltype(!std::forward<_Tp>(__t))
- { return !std::forward<_Tp>(__t); }
+ noexcept(noexcept(!forward<_Tp>(__t)))
+ -> decltype(!forward<_Tp>(__t))
+ { return !forward<_Tp>(__t); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11873,9 +11873,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) & std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) & std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) & std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) & forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) & forward<_Up>(__u))
+ { return forward<_Tp>(__t) & forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11887,9 +11887,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) | std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) | std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) | std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) | forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) | forward<_Up>(__u))
+ { return forward<_Tp>(__t) | forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11901,9 +11901,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t, _Up&& __u) const
- noexcept(noexcept(std::forward<_Tp>(__t) ^ std::forward<_Up>(__u)))
- -> decltype(std::forward<_Tp>(__t) ^ std::forward<_Up>(__u))
- { return std::forward<_Tp>(__t) ^ std::forward<_Up>(__u); }
+ noexcept(noexcept(forward<_Tp>(__t) ^ forward<_Up>(__u)))
+ -> decltype(forward<_Tp>(__t) ^ forward<_Up>(__u))
+ { return forward<_Tp>(__t) ^ forward<_Up>(__u); }
 
       typedef __is_transparent is_transparent;
     };
@@ -11915,9 +11915,9 @@ namespace std
  constexpr
  auto
  operator()(_Tp&& __t) const
- noexcept(noexcept(~std::forward<_Tp>(__t)))
- -> decltype(~std::forward<_Tp>(__t))
- { return ~std::forward<_Tp>(__t); }
+ noexcept(noexcept(~forward<_Tp>(__t)))
+ -> decltype(~forward<_Tp>(__t))
+ { return ~forward<_Tp>(__t); }
 
       typedef __is_transparent is_transparent;
     };
@@ -12517,9 +12517,9 @@ namespace std
 
   template<typename _Container>
     inline constexpr auto
-    cbegin(const _Container& __cont) noexcept(noexcept(std::begin(__cont)))
-      -> decltype(std::begin(__cont))
-    { return std::begin(__cont); }
+    cbegin(const _Container& __cont) noexcept(noexcept(begin(__cont)))
+      -> decltype(begin(__cont))
+    { return begin(__cont); }
 
 
 
@@ -12528,9 +12528,9 @@ namespace std
 
   template<typename _Container>
     inline constexpr auto
-    cend(const _Container& __cont) noexcept(noexcept(std::end(__cont)))
-      -> decltype(std::end(__cont))
-    { return std::end(__cont); }
+    cend(const _Container& __cont) noexcept(noexcept(end(__cont)))
+      -> decltype(end(__cont))
+    { return end(__cont); }
 
 
 
@@ -12619,8 +12619,8 @@ namespace std
 
   template<typename _Container>
     inline auto
-    crbegin(const _Container& __cont) -> decltype(std::rbegin(__cont))
-    { return std::rbegin(__cont); }
+    crbegin(const _Container& __cont) -> decltype(rbegin(__cont))
+    { return rbegin(__cont); }
 
 
 
@@ -12629,8 +12629,8 @@ namespace std
 
   template<typename _Container>
     inline auto
-    crend(const _Container& __cont) -> decltype(std::rend(__cont))
-    { return std::rend(__cont); }
+    crend(const _Container& __cont) -> decltype(rend(__cont))
+    { return rend(__cont); }
 # 323 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/range_access.h" 3
 
 }
@@ -12835,8 +12835,8 @@ namespace std
  struct __construct_helper
  {
    template<typename _Alloc2,
-     typename = decltype(std::declval<_Alloc2*>()->construct(
-    std::declval<_Tp*>(), std::declval<_Args>()...))>
+     typename = decltype(declval<_Alloc2*>()->construct(
+    declval<_Tp*>(), declval<_Args>()...))>
      static true_type __test(int);
 
    template<typename>
@@ -12852,14 +12852,14 @@ namespace std
       template<typename _Tp, typename... _Args>
  static _Require<__has_construct<_Tp, _Args...>>
  _S_construct(_Alloc& __a, _Tp* __p, _Args&&... __args)
- { __a.construct(__p, std::forward<_Args>(__args)...); }
+ { __a.construct(__p, forward<_Args>(__args)...); }
 
       template<typename _Tp, typename... _Args>
  static
  _Require<__and_<__not_<__has_construct<_Tp, _Args...>>,
           is_constructible<_Tp, _Args...>>>
  _S_construct(_Alloc&, _Tp* __p, _Args&&... __args)
- { ::new((void*)__p) _Tp(std::forward<_Args>(__args)...); }
+ { ::new((void*)__p) _Tp(forward<_Args>(__args)...); }
 
       template<typename _Alloc2, typename _Tp>
  static auto
@@ -12915,8 +12915,8 @@ namespace std
 # 341 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/alloc_traits.h" 3
       template<typename _Tp, typename... _Args>
  static auto construct(_Alloc& __a, _Tp* __p, _Args&&... __args)
- -> decltype(_S_construct(__a, __p, std::forward<_Args>(__args)...))
- { _S_construct(__a, __p, std::forward<_Args>(__args)...); }
+ -> decltype(_S_construct(__a, __p, forward<_Args>(__args)...))
+ { _S_construct(__a, __p, forward<_Args>(__args)...); }
 # 354 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/alloc_traits.h" 3
       template<typename _Tp>
  static void destroy(_Alloc& __a, _Tp* __p)
@@ -12952,10 +12952,10 @@ namespace std
       using const_void_pointer = const void*;
 
 
-      using difference_type = std::ptrdiff_t;
+      using difference_type = ptrdiff_t;
 
 
-      using size_type = std::size_t;
+      using size_type = size_t;
 
 
       using propagate_on_container_copy_assignment = false_type;
@@ -12990,7 +12990,7 @@ namespace std
       template<typename _Up, typename... _Args>
  static void
  construct(allocator_type& __a, _Up* __p, _Args&&... __args)
- { __a.construct(__p, std::forward<_Args>(__args)...); }
+ { __a.construct(__p, forward<_Args>(__args)...); }
 # 484 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/alloc_traits.h" 3
       template<typename _Up>
  static void
@@ -13044,7 +13044,7 @@ namespace std
 
   template<typename _Alloc>
     inline void __do_alloc_on_move(_Alloc& __one, _Alloc& __two, true_type)
-    { __one = std::move(__two); }
+    { __one = move(__two); }
 
   template<typename _Alloc>
     inline void __do_alloc_on_move(_Alloc&, _Alloc&, false_type)
@@ -13061,7 +13061,7 @@ namespace std
   template<typename _Alloc>
     inline void __do_alloc_on_swap(_Alloc& __one, _Alloc& __two, true_type)
     {
-      using std::swap;
+      using swap;
       swap(__one, __two);
     }
 
@@ -13083,9 +13083,9 @@ namespace std
       typedef allocator_traits<_Alloc> _Traits;
 
       template<typename _Up, typename
-        = decltype(_Traits::construct(std::declval<_Alloc&>(),
-          std::declval<_Up*>(),
-          std::declval<const _Up&>()))>
+        = decltype(_Traits::construct(declval<_Alloc&>(),
+          declval<_Up*>(),
+          declval<const _Up&>()))>
  static true_type
  _M_select(int);
 
@@ -13117,7 +13117,7 @@ namespace std
   template<typename _Alloc>
     struct __is_allocator<_Alloc,
       __void_t<typename _Alloc::value_type,
-        decltype(std::declval<_Alloc&>().allocate(size_t{}))>>
+        decltype(declval<_Alloc&>().allocate(size_t{}))>>
     : true_type { };
 
   template<typename _Alloc>
@@ -13143,12 +13143,12 @@ namespace __gnu_cxx
 template<typename _Alloc, typename = typename _Alloc::value_type>
   struct __alloc_traits
 
-  : std::allocator_traits<_Alloc>
+  : allocator_traits<_Alloc>
 
   {
     typedef _Alloc allocator_type;
 
-    typedef std::allocator_traits<_Alloc> _Base_type;
+    typedef allocator_traits<_Alloc> _Base_type;
     typedef typename _Base_type::value_type value_type;
     typedef typename _Base_type::pointer pointer;
     typedef typename _Base_type::const_pointer const_pointer;
@@ -13166,30 +13166,30 @@ template<typename _Alloc, typename = typename _Alloc::value_type>
   private:
     template<typename _Ptr>
       using __is_custom_pointer
- = std::__and_<std::is_same<pointer, _Ptr>,
-        std::__not_<std::is_pointer<_Ptr>>>;
+ = __and_<is_same<pointer, _Ptr>,
+        __not_<is_pointer<_Ptr>>>;
 
   public:
 
     template<typename _Ptr, typename... _Args>
-      static typename std::enable_if<__is_custom_pointer<_Ptr>::value>::type
+      static typename enable_if<__is_custom_pointer<_Ptr>::value>::type
       construct(_Alloc& __a, _Ptr __p, _Args&&... __args)
       {
- _Base_type::construct(__a, std::__to_address(__p),
-         std::forward<_Args>(__args)...);
+ _Base_type::construct(__a, __to_address(__p),
+         forward<_Args>(__args)...);
       }
 
 
     template<typename _Ptr>
-      static typename std::enable_if<__is_custom_pointer<_Ptr>::value>::type
+      static typename enable_if<__is_custom_pointer<_Ptr>::value>::type
       destroy(_Alloc& __a, _Ptr __p)
-      { _Base_type::destroy(__a, std::__to_address(__p)); }
+      { _Base_type::destroy(__a, __to_address(__p)); }
 
     static _Alloc _S_select_on_copy(const _Alloc& __a)
     { return _Base_type::select_on_container_copy_construction(__a); }
 
     static void _S_on_swap(_Alloc& __a, _Alloc& __b)
-    { std::__alloc_on_swap(__a, __b); }
+    { __alloc_on_swap(__a, __b); }
 
     static constexpr bool _S_propagate_on_copy_assign()
     { return _Base_type::propagate_on_container_copy_assignment::value; }
@@ -13244,8 +13244,8 @@ namespace __cxx11 {
       typedef __gnu_cxx::__normal_iterator<pointer, basic_string> iterator;
       typedef __gnu_cxx::__normal_iterator<const_pointer, basic_string>
        const_iterator;
-      typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
-      typedef std::reverse_iterator<iterator> reverse_iterator;
+      typedef reverse_iterator<const_iterator> const_reverse_iterator;
+      typedef reverse_iterator<iterator> reverse_iterator;
 
 
       static const size_type npos = static_cast<size_type>(-1);
@@ -13267,7 +13267,7 @@ namespace __cxx11 {
  : allocator_type(__a), _M_p(__dat) { }
 
  _Alloc_hider(pointer __dat, _Alloc&& __a = _Alloc())
- : allocator_type(std::move(__a)), _M_p(__dat) { }
+ : allocator_type(move(__a)), _M_p(__dat) { }
 
 
  pointer _M_p;
@@ -13300,7 +13300,7 @@ namespace __cxx11 {
       _M_local_data()
       {
 
- return std::pointer_traits<pointer>::pointer_to(*_M_local_buf);
+ return pointer_traits<pointer>::pointer_to(*_M_local_buf);
 
 
 
@@ -13310,7 +13310,7 @@ namespace __cxx11 {
       _M_local_data() const
       {
 
- return std::pointer_traits<const_pointer>::pointer_to(*_M_local_buf);
+ return pointer_traits<const_pointer>::pointer_to(*_M_local_buf);
 
 
 
@@ -13351,7 +13351,7 @@ namespace __cxx11 {
       template<typename _InIterator>
         void
         _M_construct_aux(_InIterator __beg, _InIterator __end,
-    std::__false_type)
+    __false_type)
  {
           typedef typename iterator_traits<_InIterator>::iterator_category _Tag;
           _M_construct(__beg, __end, _Tag());
@@ -13361,7 +13361,7 @@ namespace __cxx11 {
 
       template<typename _Integer>
         void
-        _M_construct_aux(_Integer __beg, _Integer __end, std::__true_type)
+        _M_construct_aux(_Integer __beg, _Integer __end, __true_type)
  { _M_construct_aux_2(static_cast<size_type>(__beg), __end); }
 
       void
@@ -13372,7 +13372,7 @@ namespace __cxx11 {
         void
         _M_construct(_InIterator __beg, _InIterator __end)
  {
-   typedef typename std::__is_integer<_InIterator>::__type _Integral;
+   typedef typename __is_integer<_InIterator>::__type _Integral;
    _M_construct_aux(__beg, __end, _Integral());
         }
 
@@ -13380,14 +13380,14 @@ namespace __cxx11 {
       template<typename _InIterator>
         void
         _M_construct(_InIterator __beg, _InIterator __end,
-       std::input_iterator_tag);
+       input_iterator_tag);
 
 
 
       template<typename _FwdIterator>
         void
         _M_construct(_FwdIterator __beg, _FwdIterator __end,
-       std::forward_iterator_tag);
+       forward_iterator_tag);
 
       void
       _M_construct(size_type __req, _CharT __c);
@@ -13604,7 +13604,7 @@ namespace __cxx11 {
       { _M_construct(__n, __c); }
 # 531 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.h" 3
       basic_string(basic_string&& __str) noexcept
-      : _M_dataplus(_M_local_data(), std::move(__str._M_get_allocator()))
+      : _M_dataplus(_M_local_data(), move(__str._M_get_allocator()))
       {
  if (__str._M_is_local())
    {
@@ -13663,7 +13663,7 @@ namespace __cxx11 {
       }
 # 599 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.h" 3
       template<typename _InputIterator,
-        typename = std::_RequireInputIter<_InputIterator>>
+        typename = _RequireInputIter<_InputIterator>>
 
 
 
@@ -13708,7 +13708,7 @@ namespace __cxx11 {
       _M_set_length(__len);
     }
        }
-     std::__alloc_on_copy(_M_get_allocator(), __str._M_get_allocator());
+     __alloc_on_copy(_M_get_allocator(), __str._M_get_allocator());
    }
 
  return this->assign(__str);
@@ -13743,7 +13743,7 @@ namespace __cxx11 {
      _M_set_length(0);
    }
 
- std::__alloc_on_move(_M_get_allocator(), __str._M_get_allocator());
+ __alloc_on_move(_M_get_allocator(), __str._M_get_allocator());
 
  if (!__str._M_is_local()
      && (_Alloc_traits::_S_propagate_on_move_assign()
@@ -14135,7 +14135,7 @@ namespace __cxx11 {
       { return this->append(__l.begin(), __l.size()); }
 # 1284 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.h" 3
       template<class _InputIterator,
-        typename = std::_RequireInputIter<_InputIterator>>
+        typename = _RequireInputIter<_InputIterator>>
 
 
 
@@ -14171,7 +14171,7 @@ namespace __cxx11 {
       {
 
 
- return *this = std::move(__str);
+ return *this = move(__str);
       }
 # 1383 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.h" 3
       basic_string&
@@ -14200,7 +14200,7 @@ namespace __cxx11 {
       { return _M_replace_aux(size_type(0), this->size(), __n, __c); }
 # 1445 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.h" 3
       template<class _InputIterator,
-        typename = std::_RequireInputIter<_InputIterator>>
+        typename = _RequireInputIter<_InputIterator>>
 
 
 
@@ -14228,7 +14228,7 @@ namespace __cxx11 {
       }
 # 1555 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.h" 3
       template<class _InputIterator,
-        typename = std::_RequireInputIter<_InputIterator>>
+        typename = _RequireInputIter<_InputIterator>>
  iterator
         insert(const_iterator __p, _InputIterator __beg, _InputIterator __end)
         {
@@ -14393,7 +14393,7 @@ namespace __cxx11 {
       }
 # 2062 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.h" 3
       template<class _InputIterator,
-        typename = std::_RequireInputIter<_InputIterator>>
+        typename = _RequireInputIter<_InputIterator>>
         basic_string&
         replace(const_iterator __i1, const_iterator __i2,
   _InputIterator __k1, _InputIterator __k2)
@@ -14402,7 +14402,7 @@ namespace __cxx11 {
                         ;
    ;
    return this->_M_replace_dispatch(__i1, __i2, __k1, __k2,
-        std::__false_type());
+        __false_type());
  }
 # 2094 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.h" 3
       basic_string&
@@ -14629,7 +14629,7 @@ namespace __cxx11 {
       {
  const size_type __size = this->size();
  const size_type __osize = __str.size();
- const size_type __len = std::min(__size, __osize);
+ const size_type __len = min(__size, __osize);
 
  int __r = traits_type::compare(_M_data(), __str.data(), __len);
  if (!__r)
@@ -14728,13 +14728,13 @@ namespace __cxx11 {
     inline basic_string<_CharT, _Traits, _Alloc>
     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
        const basic_string<_CharT, _Traits, _Alloc>& __rhs)
-    { return std::move(__lhs.append(__rhs)); }
+    { return move(__lhs.append(__rhs)); }
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     inline basic_string<_CharT, _Traits, _Alloc>
     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
        basic_string<_CharT, _Traits, _Alloc>&& __rhs)
-    { return std::move(__rhs.insert(0, __lhs)); }
+    { return move(__rhs.insert(0, __lhs)); }
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     inline basic_string<_CharT, _Traits, _Alloc>
@@ -14744,33 +14744,33 @@ namespace __cxx11 {
       const auto __size = __lhs.size() + __rhs.size();
       const bool __cond = (__size > __lhs.capacity()
       && __size <= __rhs.capacity());
-      return __cond ? std::move(__rhs.insert(0, __lhs))
-             : std::move(__lhs.append(__rhs));
+      return __cond ? move(__rhs.insert(0, __lhs))
+             : move(__lhs.append(__rhs));
     }
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     inline basic_string<_CharT, _Traits, _Alloc>
     operator+(const _CharT* __lhs,
        basic_string<_CharT, _Traits, _Alloc>&& __rhs)
-    { return std::move(__rhs.insert(0, __lhs)); }
+    { return move(__rhs.insert(0, __lhs)); }
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     inline basic_string<_CharT, _Traits, _Alloc>
     operator+(_CharT __lhs,
        basic_string<_CharT, _Traits, _Alloc>&& __rhs)
-    { return std::move(__rhs.insert(0, 1, __lhs)); }
+    { return move(__rhs.insert(0, 1, __lhs)); }
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     inline basic_string<_CharT, _Traits, _Alloc>
     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
        const _CharT* __rhs)
-    { return std::move(__lhs.append(__rhs)); }
+    { return move(__lhs.append(__rhs)); }
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     inline basic_string<_CharT, _Traits, _Alloc>
     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
        _CharT __rhs)
-    { return std::move(__lhs.append(1, __rhs)); }
+    { return move(__lhs.append(1, __rhs)); }
 # 6007 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.h" 3
   template<typename _CharT, typename _Traits, typename _Alloc>
     inline bool
@@ -14785,7 +14785,7 @@ namespace __cxx11 {
     operator==(const basic_string<_CharT>& __lhs,
         const basic_string<_CharT>& __rhs) noexcept
     { return (__lhs.size() == __rhs.size()
-       && !std::char_traits<_CharT>::compare(__lhs.data(), __rhs.data(),
+       && !char_traits<_CharT>::compare(__lhs.data(), __rhs.data(),
           __lhs.size())); }
 
 
@@ -15002,7 +15002,7 @@ namespace __cxx11 {
     inline basic_istream<_CharT, _Traits>&
     getline(basic_istream<_CharT, _Traits>& __is,
      basic_string<_CharT, _Traits, _Alloc>& __str)
-    { return std::getline(__is, __str, __is.widen('\n')); }
+    { return getline(__is, __str, __is.widen('\n')); }
 
 
 
@@ -15010,14 +15010,14 @@ namespace __cxx11 {
     inline basic_istream<_CharT, _Traits>&
     getline(basic_istream<_CharT, _Traits>&& __is,
      basic_string<_CharT, _Traits, _Alloc>& __str, _CharT __delim)
-    { return std::getline(__is, __str, __delim); }
+    { return getline(__is, __str, __delim); }
 
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     inline basic_istream<_CharT, _Traits>&
     getline(basic_istream<_CharT, _Traits>&& __is,
      basic_string<_CharT, _Traits, _Alloc>& __str)
-    { return std::getline(__is, __str); }
+    { return getline(__is, __str); }
 
 
   template<>
@@ -15885,7 +15885,7 @@ namespace __gnu_cxx
     typename... _Base>
     _Ret
     __stoa(_TRet (*__convf) (const _CharT*, _CharT**, _Base...),
-    const char* __name, const _CharT* __str, std::size_t* __idx,
+    const char* __name, const _CharT* __str, size_t* __idx,
     _Base... __base)
     {
       _Ret __ret;
@@ -15900,10 +15900,10 @@ namespace __gnu_cxx
 
       struct _Range_chk {
    static bool
-   _S_chk(_TRet, std::false_type) { return false; }
+   _S_chk(_TRet, false_type) { return false; }
 
    static bool
-   _S_chk(_TRet __val, std::true_type)
+   _S_chk(_TRet __val, true_type)
    {
      return __val < _TRet(__numeric_traits<int>::__min)
        || __val > _TRet(__numeric_traits<int>::__max);
@@ -15913,10 +15913,10 @@ namespace __gnu_cxx
       const _TRet __tmp = __convf(__str, &__endptr, __base...);
 
       if (__endptr == __str)
- std::__throw_invalid_argument(__name);
+ __throw_invalid_argument(__name);
       else if ((*_errno()) == 34
-   || _Range_chk::_S_chk(__tmp, std::is_same<_Ret, int>{}))
- std::__throw_out_of_range(__name);
+   || _Range_chk::_S_chk(__tmp, is_same<_Ret, int>{}))
+ __throw_out_of_range(__name);
       else
  __ret = __tmp;
 
@@ -15929,8 +15929,8 @@ namespace __gnu_cxx
 
   template<typename _String, typename _CharT = typename _String::value_type>
     _String
-    __to_xstring(int (*__convf) (_CharT*, std::size_t, const _CharT*,
-     __builtin_va_list), std::size_t __n,
+    __to_xstring(int (*__convf) (_CharT*, size_t, const _CharT*,
+     __builtin_va_list), size_t __n,
    const _CharT* __fmt, ...)
     {
 
@@ -15961,41 +15961,41 @@ namespace __cxx11 {
 
   inline int
   stoi(const string& __str, size_t* __idx = 0, int __base = 10)
-  { return __gnu_cxx::__stoa<long, int>(&std::strtol, "stoi", __str.c_str(),
+  { return __gnu_cxx::__stoa<long, int>(&strtol, "stoi", __str.c_str(),
      __idx, __base); }
 
   inline long
   stol(const string& __str, size_t* __idx = 0, int __base = 10)
-  { return __gnu_cxx::__stoa(&std::strtol, "stol", __str.c_str(),
+  { return __gnu_cxx::__stoa(&strtol, "stol", __str.c_str(),
         __idx, __base); }
 
   inline unsigned long
   stoul(const string& __str, size_t* __idx = 0, int __base = 10)
-  { return __gnu_cxx::__stoa(&std::strtoul, "stoul", __str.c_str(),
+  { return __gnu_cxx::__stoa(&strtoul, "stoul", __str.c_str(),
         __idx, __base); }
 
   inline long long
   stoll(const string& __str, size_t* __idx = 0, int __base = 10)
-  { return __gnu_cxx::__stoa(&std::strtoll, "stoll", __str.c_str(),
+  { return __gnu_cxx::__stoa(&strtoll, "stoll", __str.c_str(),
         __idx, __base); }
 
   inline unsigned long long
   stoull(const string& __str, size_t* __idx = 0, int __base = 10)
-  { return __gnu_cxx::__stoa(&std::strtoull, "stoull", __str.c_str(),
+  { return __gnu_cxx::__stoa(&strtoull, "stoull", __str.c_str(),
         __idx, __base); }
 
 
   inline float
   stof(const string& __str, size_t* __idx = 0)
-  { return __gnu_cxx::__stoa(&std::strtof, "stof", __str.c_str(), __idx); }
+  { return __gnu_cxx::__stoa(&strtof, "stof", __str.c_str(), __idx); }
 
   inline double
   stod(const string& __str, size_t* __idx = 0)
-  { return __gnu_cxx::__stoa(&std::strtod, "stod", __str.c_str(), __idx); }
+  { return __gnu_cxx::__stoa(&strtod, "stod", __str.c_str(), __idx); }
 
   inline long double
   stold(const string& __str, size_t* __idx = 0)
-  { return __gnu_cxx::__stoa(&std::strtold, "stold", __str.c_str(), __idx); }
+  { return __gnu_cxx::__stoa(&strtold, "stold", __str.c_str(), __idx); }
 
 
 
@@ -16004,35 +16004,35 @@ namespace __cxx11 {
 
   inline string
   to_string(int __val)
-  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, 4 * sizeof(int),
+  { return __gnu_cxx::__to_xstring<string>(&vsnprintf, 4 * sizeof(int),
         "%d", __val); }
 
   inline string
   to_string(unsigned __val)
-  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf,
+  { return __gnu_cxx::__to_xstring<string>(&vsnprintf,
         4 * sizeof(unsigned),
         "%u", __val); }
 
   inline string
   to_string(long __val)
-  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, 4 * sizeof(long),
+  { return __gnu_cxx::__to_xstring<string>(&vsnprintf, 4 * sizeof(long),
         "%ld", __val); }
 
   inline string
   to_string(unsigned long __val)
-  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf,
+  { return __gnu_cxx::__to_xstring<string>(&vsnprintf,
         4 * sizeof(unsigned long),
         "%lu", __val); }
 
   inline string
   to_string(long long __val)
-  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf,
+  { return __gnu_cxx::__to_xstring<string>(&vsnprintf,
         4 * sizeof(long long),
         "%lld", __val); }
 
   inline string
   to_string(unsigned long long __val)
-  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf,
+  { return __gnu_cxx::__to_xstring<string>(&vsnprintf,
         4 * sizeof(unsigned long long),
         "%llu", __val); }
 
@@ -16041,7 +16041,7 @@ namespace __cxx11 {
   {
     const int __n =
       __gnu_cxx::__numeric_traits<float>::__max_exponent10 + 20;
-    return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, __n,
+    return __gnu_cxx::__to_xstring<string>(&vsnprintf, __n,
         "%f", __val);
   }
 
@@ -16050,7 +16050,7 @@ namespace __cxx11 {
   {
     const int __n =
       __gnu_cxx::__numeric_traits<double>::__max_exponent10 + 20;
-    return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, __n,
+    return __gnu_cxx::__to_xstring<string>(&vsnprintf, __n,
         "%f", __val);
   }
 
@@ -16059,7 +16059,7 @@ namespace __cxx11 {
   {
     const int __n =
       __gnu_cxx::__numeric_traits<long double>::__max_exponent10 + 20;
-    return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, __n,
+    return __gnu_cxx::__to_xstring<string>(&vsnprintf, __n,
         "%Lf", __val);
   }
 
@@ -16067,75 +16067,75 @@ namespace __cxx11 {
 
   inline int
   stoi(const wstring& __str, size_t* __idx = 0, int __base = 10)
-  { return __gnu_cxx::__stoa<long, int>(&std::wcstol, "stoi", __str.c_str(),
+  { return __gnu_cxx::__stoa<long, int>(&wcstol, "stoi", __str.c_str(),
      __idx, __base); }
 
   inline long
   stol(const wstring& __str, size_t* __idx = 0, int __base = 10)
-  { return __gnu_cxx::__stoa(&std::wcstol, "stol", __str.c_str(),
+  { return __gnu_cxx::__stoa(&wcstol, "stol", __str.c_str(),
         __idx, __base); }
 
   inline unsigned long
   stoul(const wstring& __str, size_t* __idx = 0, int __base = 10)
-  { return __gnu_cxx::__stoa(&std::wcstoul, "stoul", __str.c_str(),
+  { return __gnu_cxx::__stoa(&wcstoul, "stoul", __str.c_str(),
         __idx, __base); }
 
   inline long long
   stoll(const wstring& __str, size_t* __idx = 0, int __base = 10)
-  { return __gnu_cxx::__stoa(&std::wcstoll, "stoll", __str.c_str(),
+  { return __gnu_cxx::__stoa(&wcstoll, "stoll", __str.c_str(),
         __idx, __base); }
 
   inline unsigned long long
   stoull(const wstring& __str, size_t* __idx = 0, int __base = 10)
-  { return __gnu_cxx::__stoa(&std::wcstoull, "stoull", __str.c_str(),
+  { return __gnu_cxx::__stoa(&wcstoull, "stoull", __str.c_str(),
         __idx, __base); }
 
 
   inline float
   stof(const wstring& __str, size_t* __idx = 0)
-  { return __gnu_cxx::__stoa(&std::wcstof, "stof", __str.c_str(), __idx); }
+  { return __gnu_cxx::__stoa(&wcstof, "stof", __str.c_str(), __idx); }
 
   inline double
   stod(const wstring& __str, size_t* __idx = 0)
-  { return __gnu_cxx::__stoa(&std::wcstod, "stod", __str.c_str(), __idx); }
+  { return __gnu_cxx::__stoa(&wcstod, "stod", __str.c_str(), __idx); }
 
   inline long double
   stold(const wstring& __str, size_t* __idx = 0)
-  { return __gnu_cxx::__stoa(&std::wcstold, "stold", __str.c_str(), __idx); }
+  { return __gnu_cxx::__stoa(&wcstold, "stold", __str.c_str(), __idx); }
 
 
 
   inline wstring
   to_wstring(int __val)
-  { return __gnu_cxx::__to_xstring<wstring>(&std::vswprintf, 4 * sizeof(int),
+  { return __gnu_cxx::__to_xstring<wstring>(&vswprintf, 4 * sizeof(int),
          L"%d", __val); }
 
   inline wstring
   to_wstring(unsigned __val)
-  { return __gnu_cxx::__to_xstring<wstring>(&std::vswprintf,
+  { return __gnu_cxx::__to_xstring<wstring>(&vswprintf,
          4 * sizeof(unsigned),
          L"%u", __val); }
 
   inline wstring
   to_wstring(long __val)
-  { return __gnu_cxx::__to_xstring<wstring>(&std::vswprintf, 4 * sizeof(long),
+  { return __gnu_cxx::__to_xstring<wstring>(&vswprintf, 4 * sizeof(long),
          L"%ld", __val); }
 
   inline wstring
   to_wstring(unsigned long __val)
-  { return __gnu_cxx::__to_xstring<wstring>(&std::vswprintf,
+  { return __gnu_cxx::__to_xstring<wstring>(&vswprintf,
          4 * sizeof(unsigned long),
          L"%lu", __val); }
 
   inline wstring
   to_wstring(long long __val)
-  { return __gnu_cxx::__to_xstring<wstring>(&std::vswprintf,
+  { return __gnu_cxx::__to_xstring<wstring>(&vswprintf,
          4 * sizeof(long long),
          L"%lld", __val); }
 
   inline wstring
   to_wstring(unsigned long long __val)
-  { return __gnu_cxx::__to_xstring<wstring>(&std::vswprintf,
+  { return __gnu_cxx::__to_xstring<wstring>(&vswprintf,
          4 * sizeof(unsigned long long),
          L"%llu", __val); }
 
@@ -16144,7 +16144,7 @@ namespace __cxx11 {
   {
     const int __n =
       __gnu_cxx::__numeric_traits<float>::__max_exponent10 + 20;
-    return __gnu_cxx::__to_xstring<wstring>(&std::vswprintf, __n,
+    return __gnu_cxx::__to_xstring<wstring>(&vswprintf, __n,
          L"%f", __val);
   }
 
@@ -16153,7 +16153,7 @@ namespace __cxx11 {
   {
     const int __n =
       __gnu_cxx::__numeric_traits<double>::__max_exponent10 + 20;
-    return __gnu_cxx::__to_xstring<wstring>(&std::vswprintf, __n,
+    return __gnu_cxx::__to_xstring<wstring>(&vswprintf, __n,
          L"%f", __val);
   }
 
@@ -16162,7 +16162,7 @@ namespace __cxx11 {
   {
     const int __n =
       __gnu_cxx::__numeric_traits<long double>::__max_exponent10 + 20;
-    return __gnu_cxx::__to_xstring<wstring>(&std::vswprintf, __n,
+    return __gnu_cxx::__to_xstring<wstring>(&vswprintf, __n,
          L"%Lf", __val);
   }
 
@@ -16344,7 +16344,7 @@ namespace std
       operator()(float __val) const noexcept
       {
 
- return __val != 0.0f ? std::_Hash_impl::hash(__val) : 0;
+ return __val != 0.0f ? _Hash_impl::hash(__val) : 0;
       }
     };
 
@@ -16356,7 +16356,7 @@ namespace std
       operator()(double __val) const noexcept
       {
 
- return __val != 0.0 ? std::_Hash_impl::hash(__val) : 0;
+ return __val != 0.0 ? _Hash_impl::hash(__val) : 0;
       }
     };
 
@@ -16376,11 +16376,11 @@ namespace std
 
 
   template<typename _Hash>
-    struct __is_fast_hash : public std::true_type
+    struct __is_fast_hash : public true_type
     { };
 
   template<>
-    struct __is_fast_hash<hash<long double>> : public std::false_type
+    struct __is_fast_hash<hash<long double>> : public false_type
     { };
 
 
@@ -16401,11 +16401,11 @@ namespace std
     {
       size_t
       operator()(const string& __s) const noexcept
-      { return std::_Hash_impl::hash(__s.data(), __s.length()); }
+      { return _Hash_impl::hash(__s.data(), __s.length()); }
     };
 
   template<>
-    struct __is_fast_hash<hash<string>> : std::false_type
+    struct __is_fast_hash<hash<string>> : false_type
     { };
 
 
@@ -16416,12 +16416,12 @@ namespace std
     {
       size_t
       operator()(const wstring& __s) const noexcept
-      { return std::_Hash_impl::hash(__s.data(),
+      { return _Hash_impl::hash(__s.data(),
                                      __s.length() * sizeof(wchar_t)); }
     };
 
   template<>
-    struct __is_fast_hash<hash<wstring>> : std::false_type
+    struct __is_fast_hash<hash<wstring>> : false_type
     { };
 
 
@@ -16434,12 +16434,12 @@ namespace std
     {
       size_t
       operator()(const u16string& __s) const noexcept
-      { return std::_Hash_impl::hash(__s.data(),
+      { return _Hash_impl::hash(__s.data(),
                                      __s.length() * sizeof(char16_t)); }
     };
 
   template<>
-    struct __is_fast_hash<hash<u16string>> : std::false_type
+    struct __is_fast_hash<hash<u16string>> : false_type
     { };
 
 
@@ -16449,12 +16449,12 @@ namespace std
     {
       size_t
       operator()(const u32string& __s) const noexcept
-      { return std::_Hash_impl::hash(__s.data(),
+      { return _Hash_impl::hash(__s.data(),
                                      __s.length() * sizeof(char32_t)); }
     };
 
   template<>
-    struct __is_fast_hash<hash<u32string>> : std::false_type
+    struct __is_fast_hash<hash<u32string>> : false_type
     { };
 
 
@@ -16600,7 +16600,7 @@ namespace std
 
 
       if (__capacity > SIZE())
- std::__throw_length_error(("basic_string::_M_create"));
+ __throw_length_error(("basic_string::_M_create"));
 
 
 
@@ -16627,7 +16627,7 @@ namespace std
       void
       basic_string<_CharT, _Traits, _Alloc>::
       _M_construct(_InIterator __beg, _InIterator __end,
-     std::input_iterator_tag)
+     input_iterator_tag)
       {
  size_type __len = 0;
  size_type __capacity = size_type(_S_local_capacity);
@@ -16670,14 +16670,14 @@ namespace std
       void
       basic_string<_CharT, _Traits, _Alloc>::
       _M_construct(_InIterator __beg, _InIterator __end,
-     std::forward_iterator_tag)
+     forward_iterator_tag)
       {
 
  if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
-   std::__throw_logic_error(("basic_string::" "_M_construct null not valid")
+   __throw_logic_error(("basic_string::" "_M_construct null not valid")
                                          );
 
- size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
+ size_type __dnew = static_cast<size_type>(distance(__beg, __end));
 
  if (__dnew > size_type(_S_local_capacity))
    {
@@ -16844,7 +16844,7 @@ namespace std
       basic_string<_CharT, _Traits, _Alloc>::
       _M_replace_dispatch(const_iterator __i1, const_iterator __i2,
      _InputIterator __k1, _InputIterator __k2,
-     std::__false_type)
+     __false_type)
       {
  const basic_string __s(__k1, __k2);
  const size_type __n1 = __i2 - __i1;
@@ -17042,7 +17042,7 @@ namespace std
       const size_type __size = this->size();
       if (__n <= __size)
  {
-   __pos = std::min(size_type(__size - __n), __pos);
+   __pos = min(size_type(__size - __n), __pos);
    const _CharT* __data = _M_data();
    do
      {
@@ -17183,7 +17183,7 @@ namespace std
       _M_check(__pos, "basic_string::compare");
       __n = _M_limit(__pos, __n);
       const size_type __osize = __str.size();
-      const size_type __len = std::min(__n, __osize);
+      const size_type __len = min(__n, __osize);
       int __r = traits_type::compare(_M_data() + __pos, __str.data(), __len);
       if (!__r)
  __r = _S_compare(__n, __osize);
@@ -17200,7 +17200,7 @@ namespace std
       __str._M_check(__pos2, "basic_string::compare");
       __n1 = _M_limit(__pos1, __n1);
       __n2 = __str._M_limit(__pos2, __n2);
-      const size_type __len = std::min(__n1, __n2);
+      const size_type __len = min(__n1, __n2);
       int __r = traits_type::compare(_M_data() + __pos1,
          __str.data() + __pos2, __len);
       if (!__r)
@@ -17216,7 +17216,7 @@ namespace std
       ;
       const size_type __size = this->size();
       const size_type __osize = traits_type::length(__s);
-      const size_type __len = std::min(__size, __osize);
+      const size_type __len = min(__size, __osize);
       int __r = traits_type::compare(_M_data(), __s, __len);
       if (!__r)
  __r = _S_compare(__size, __osize);
@@ -17232,7 +17232,7 @@ namespace std
       _M_check(__pos, "basic_string::compare");
       __n1 = _M_limit(__pos, __n1);
       const size_type __osize = traits_type::length(__s);
-      const size_type __len = std::min(__n1, __osize);
+      const size_type __len = min(__n1, __osize);
       int __r = traits_type::compare(_M_data() + __pos, __s, __len);
       if (!__r)
  __r = _S_compare(__n1, __osize);
@@ -17248,7 +17248,7 @@ namespace std
       ;
       _M_check(__pos, "basic_string::compare");
       __n1 = _M_limit(__pos, __n1);
-      const size_type __len = std::min(__n1, __n2);
+      const size_type __len = min(__n1, __n2);
       int __r = traits_type::compare(_M_data() + __pos, __s, __len);
       if (!__r)
  __r = _S_compare(__n1, __n2);
@@ -17481,9 +17481,9 @@ namespace std
     locale(const locale& __base, const char* __s, category __cat);
 # 162 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h" 3
     explicit
-    locale(const std::string& __s) : locale(__s.c_str()) { }
+    locale(const string& __s) : locale(__s.c_str()) { }
 # 177 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h" 3
-    locale(const locale& __base, const std::string& __s, category __cat)
+    locale(const locale& __base, const string& __s, category __cat)
     : locale(__base, __s.c_str(), __cat) { }
 # 192 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h" 3
     locale(const locale& __base, const locale& __add, category __cat);
@@ -17985,7 +17985,7 @@ namespace std
     operator()(const basic_string<_CharT, _Traits, _Alloc>& __s1,
         const basic_string<_CharT, _Traits, _Alloc>& __s2) const
     {
-      typedef std::collate<_CharT> __collate_type;
+      typedef collate<_CharT> __collate_type;
       const __collate_type& __collate = use_facet<__collate_type>(*this);
       return (__collate.compare(__s1.data(), __s1.data() + __s1.length(),
     __s2.data(), __s2.data() + __s2.length()) < 0);
@@ -18347,7 +18347,7 @@ namespace std
     };
 
     __cow_string();
-    __cow_string(const std::string&);
+    __cow_string(const string&);
     __cow_string(const char*, size_t);
     __cow_string(const __cow_string&) noexcept;
     __cow_string& operator=(const __cow_string&) noexcept;
@@ -18797,7 +18797,7 @@ namespace std
 
 
 
-  class system_error : public std::runtime_error
+  class system_error : public runtime_error
   {
   private:
     error_code _M_code;
@@ -18848,8 +18848,8 @@ namespace std
       size_t
       operator()(const error_code& __e) const noexcept
       {
- const size_t __tmp = std::_Hash_impl::hash(__e._M_value);
- return std::_Hash_impl::__hash_combine(__e._M_cat, __tmp);
+ const size_t __tmp = _Hash_impl::hash(__e._M_value);
+ return _Hash_impl::__hash_combine(__e._M_cat, __tmp);
       }
     };
 # 414 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/system_error" 3
@@ -19171,8 +19171,8 @@ namespace std
     typedef int open_mode;
     typedef int seek_dir;
 
-    typedef std::streampos streampos;
-    typedef std::streamoff streamoff;
+    typedef streampos streampos;
+    typedef streamoff streamoff;
 # 489 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ios_base.h" 3
     enum event
     {
@@ -19991,25 +19991,25 @@ namespace std
       void
       swap(basic_streambuf& __sb)
       {
- std::swap(_M_in_beg, __sb._M_in_beg);
- std::swap(_M_in_cur, __sb._M_in_cur);
- std::swap(_M_in_end, __sb._M_in_end);
- std::swap(_M_out_beg, __sb._M_out_beg);
- std::swap(_M_out_cur, __sb._M_out_cur);
- std::swap(_M_out_end, __sb._M_out_end);
- std::swap(_M_buf_locale, __sb._M_buf_locale);
+ swap(_M_in_beg, __sb._M_in_beg);
+ swap(_M_in_cur, __sb._M_in_cur);
+ swap(_M_in_end, __sb._M_in_end);
+ swap(_M_out_beg, __sb._M_out_beg);
+ swap(_M_out_cur, __sb._M_out_cur);
+ swap(_M_out_end, __sb._M_out_end);
+ swap(_M_buf_locale, __sb._M_buf_locale);
       }
 
     };
 
 
   template<typename _CharT, typename _Traits>
-    std::basic_streambuf<_CharT, _Traits>::
+    basic_streambuf<_CharT, _Traits>::
     basic_streambuf(const basic_streambuf&) = default;
 
   template<typename _CharT, typename _Traits>
-    std::basic_streambuf<_CharT, _Traits>&
-    std::basic_streambuf<_CharT, _Traits>::
+    basic_streambuf<_CharT, _Traits>&
+    basic_streambuf<_CharT, _Traits>::
     operator=(const basic_streambuf&) = default;
 
 
@@ -20051,7 +20051,7 @@ namespace std
    if (__buf_len)
      {
        const streamsize __remaining = __n - __ret;
-       const streamsize __len = std::min(__buf_len, __remaining);
+       const streamsize __len = min(__buf_len, __remaining);
        traits_type::copy(__s, this->gptr(), __len);
        __ret += __len;
        __s += __len;
@@ -20085,7 +20085,7 @@ namespace std
    if (__buf_len)
      {
        const streamsize __remaining = __n - __ret;
-       const streamsize __len = std::min(__buf_len, __remaining);
+       const streamsize __len = min(__buf_len, __remaining);
        traits_type::copy(this->pptr(), __s, __len);
        __ret += __len;
        __s += __len;
@@ -22284,7 +22284,7 @@ namespace std
    if (!__found_dec && !__found_sci)
      __found_grouping += static_cast<char>(__sep_pos);
 
-          if (!std::__verify_grouping(__lc->_M_grouping,
+          if (!__verify_grouping(__lc->_M_grouping,
           __lc->_M_grouping_size,
           __found_grouping))
      __err = ios_base::failbit;
@@ -22483,7 +22483,7 @@ namespace std
 
      __found_grouping += static_cast<char>(__sep_pos);
 
-     if (!std::__verify_grouping(__lc->_M_grouping,
+     if (!__verify_grouping(__lc->_M_grouping,
      __lc->_M_grouping_size,
      __found_grouping))
        __err = ios_base::failbit;
@@ -22620,7 +22620,7 @@ namespace std
       string __xtrc;
       __xtrc.reserve(32);
       __beg = _M_extract_float(__beg, __end, __io, __err, __xtrc);
-      std::__convert_to_v(__xtrc.c_str(), __v, __err, _S_get_c_locale());
+      __convert_to_v(__xtrc.c_str(), __v, __err, _S_get_c_locale());
       if (__beg == __end)
  __err |= ios_base::eofbit;
       return __beg;
@@ -22635,7 +22635,7 @@ namespace std
       string __xtrc;
       __xtrc.reserve(32);
       __beg = _M_extract_float(__beg, __end, __io, __err, __xtrc);
-      std::__convert_to_v(__xtrc.c_str(), __v, __err, _S_get_c_locale());
+      __convert_to_v(__xtrc.c_str(), __v, __err, _S_get_c_locale());
       if (__beg == __end)
  __err |= ios_base::eofbit;
       return __beg;
@@ -22650,7 +22650,7 @@ namespace std
       string __xtrc;
       __xtrc.reserve(32);
       __beg = _M_extract_float(__beg, __end, __io, __err, __xtrc);
-      std::__convert_to_v(__xtrc.c_str(), __v, __err, _S_get_c_locale());
+      __convert_to_v(__xtrc.c_str(), __v, __err, _S_get_c_locale());
       if (__beg == __end)
  __err |= ios_base::eofbit;
       return __beg;
@@ -22748,7 +22748,7 @@ namespace std
     _M_group_int(const char* __grouping, size_t __grouping_size, _CharT __sep,
    ios_base&, _CharT* __new, _CharT* __cs, int& __len) const
     {
-      _CharT* __p = std::__add_grouping(__new, __sep, __grouping,
+      _CharT* __p = __add_grouping(__new, __sep, __grouping,
      __grouping_size, __cs, __cs + __len);
       __len = __p - __new;
     }
@@ -22839,7 +22839,7 @@ namespace std
 
 
 
- return std::__write(__s, __cs, __len);
+ return __write(__s, __cs, __len);
       }
 
   template<typename _CharT, typename _OutIter>
@@ -22853,7 +22853,7 @@ namespace std
 
 
       const int __declen = __p ? __p - __cs : __len;
-      _CharT* __p2 = std::__add_grouping(__new, __sep, __grouping,
+      _CharT* __p2 = __add_grouping(__new, __sep, __grouping,
       __grouping_size,
       __cs, __cs + __declen);
 
@@ -22901,10 +22901,10 @@ namespace std
  int __cs_size = __max_digits * 3;
  char* __cs = static_cast<char*>(__builtin_alloca(__cs_size));
  if (__use_prec)
-   __len = std::__convert_from_v(_S_get_c_locale(), __cs, __cs_size,
+   __len = __convert_from_v(_S_get_c_locale(), __cs, __cs_size,
      __fbuf, __prec, __v);
  else
-   __len = std::__convert_from_v(_S_get_c_locale(), __cs, __cs_size,
+   __len = __convert_from_v(_S_get_c_locale(), __cs, __cs_size,
      __fbuf, __v);
 
 
@@ -22913,10 +22913,10 @@ namespace std
      __cs_size = __len + 1;
      __cs = static_cast<char*>(__builtin_alloca(__cs_size));
      if (__use_prec)
-       __len = std::__convert_from_v(_S_get_c_locale(), __cs, __cs_size,
+       __len = __convert_from_v(_S_get_c_locale(), __cs, __cs_size,
          __fbuf, __prec, __v);
      else
-       __len = std::__convert_from_v(_S_get_c_locale(), __cs, __cs_size,
+       __len = __convert_from_v(_S_get_c_locale(), __cs, __cs_size,
          __fbuf, __v);
    }
 # 1044 "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.tcc" 3
@@ -22976,7 +22976,7 @@ namespace std
 
 
 
- return std::__write(__s, __ws, __len);
+ return __write(__s, __ws, __len);
       }
 
   template<typename _CharT, typename _OutIter>
@@ -23015,18 +23015,18 @@ namespace std
 
        if ((__flags & ios_base::adjustfield) == ios_base::left)
   {
-    __s = std::__write(__s, __name, __len);
-    __s = std::__write(__s, __ps, __plen);
+    __s = __write(__s, __name, __len);
+    __s = __write(__s, __ps, __plen);
   }
        else
   {
-    __s = std::__write(__s, __ps, __plen);
-    __s = std::__write(__s, __name, __len);
+    __s = __write(__s, __ps, __plen);
+    __s = __write(__s, __name, __len);
   }
        return __s;
      }
    __io.width(0);
-   __s = std::__write(__s, __name, __len);
+   __s = __write(__s, __name, __len);
  }
       return __s;
     }
@@ -23517,9 +23517,9 @@ namespace std
  ios_base::_M_swap(__rhs);
  _M_cache_locale(_M_ios_locale);
  __rhs._M_cache_locale(__rhs._M_ios_locale);
- std::swap(_M_tie, __rhs._M_tie);
- std::swap(_M_fill, __rhs._M_fill);
- std::swap(_M_fill_init, __rhs._M_fill_init);
+ swap(_M_tie, __rhs._M_tie);
+ swap(_M_fill, __rhs._M_fill);
+ swap(_M_fill_init, __rhs._M_fill_init);
       }
 
       void
@@ -23652,17 +23652,17 @@ namespace std
     basic_ios<_CharT, _Traits>::_M_cache_locale(const locale& __loc)
     {
       if (__builtin_expect(has_facet<__ctype_type>(__loc), true))
- _M_ctype = std::__addressof(use_facet<__ctype_type>(__loc));
+ _M_ctype = __addressof(use_facet<__ctype_type>(__loc));
       else
  _M_ctype = 0;
 
       if (__builtin_expect(has_facet<__num_put_type>(__loc), true))
- _M_num_put = std::__addressof(use_facet<__num_put_type>(__loc));
+ _M_num_put = __addressof(use_facet<__num_put_type>(__loc));
       else
  _M_num_put = 0;
 
       if (__builtin_expect(has_facet<__num_get_type>(__loc), true))
- _M_num_get = std::__addressof(use_facet<__num_get_type>(__loc));
+ _M_num_get = __addressof(use_facet<__num_get_type>(__loc));
       else
  _M_num_get = 0;
     }
@@ -24677,7 +24677,7 @@ namespace std
       swap(basic_istream& __rhs)
       {
  __ios_type::swap(__rhs);
- std::swap(_M_gcount, __rhs._M_gcount);
+ swap(_M_gcount, __rhs._M_gcount);
       }
 
 
@@ -24817,7 +24817,7 @@ namespace std
       basic_iostream(const basic_iostream&) = delete;
 
       basic_iostream(basic_iostream&& __rhs)
-      : __istream_type(std::move(__rhs)), __ostream_type(*this)
+      : __istream_type(move(__rhs)), __ostream_type(*this)
       { }
 
 
@@ -24901,7 +24901,7 @@ namespace std
     operator>>(_Istream&& __is, _Tp&& __x)
     {
       __rvalue_istream_type<_Istream> __ret_is = __is;
-      __ret_is >> std::forward<_Tp>(__x);
+      __ret_is >> forward<_Tp>(__x);
       return __ret_is;
     }
 
@@ -25567,7 +25567,7 @@ namespace std
 
        const streamsize __num = this->rdbuf()->in_avail();
        if (__num > 0)
-  _M_gcount = this->rdbuf()->sgetn(__s, std::min(__num, __n));
+  _M_gcount = this->rdbuf()->sgetn(__s, min(__num, __n));
        else if (__num == -1)
   __err |= ios_base::eofbit;
      }

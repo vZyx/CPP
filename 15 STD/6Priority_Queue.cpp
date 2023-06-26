@@ -3,7 +3,7 @@
 #include <queue>
 using namespace std;
 
-/*
+/* Best in , First out
 Priority queue is a type of container adapter,
 Specifically designed such that the first element of the queue is either the greatest or the smallest of all elements in the queue,
 And elements are in non-increasing or non-decreasing order (hence we can see that each element of the queue has a priority {fixed order}).
@@ -20,9 +20,6 @@ int main()
 {
 	int arr[6] = { 10, 2, 4, 8, 6, 9 };
 
-	// defining priority queue
-	priority_queue<int> pq;
-
 	// printing array
 	cout << "Array: ";
 	for (auto i : arr) {
@@ -30,9 +27,12 @@ int main()
 	}
 	cout << endl;
 
+	// defining priority queue
+	priority_queue<int> pq;
+
 	// pushing array sequentially one by one
 	for (int i = 0; i < 6; i++) {
-		pq.push(arr[i]);
+		pq.push(arr[i]); //pushing each element of arr in priority queue
 	}
 
 	// printing priority queue

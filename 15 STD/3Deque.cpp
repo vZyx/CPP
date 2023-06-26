@@ -5,7 +5,8 @@ using namespace std;
 /*
 In C++, the STL deque is a sequential container that provides the functionality of a double-ended queue data structure.
 
-In a regular queue, Elements are added from the back and removed from the front. However, in a deque, we can insert and remove elements from both the front and back.
+In a regular queue, Elements are added from the back and removed from the front.
+However, in a deque, we can insert and remove elements from both the front and back.
 */
 
 

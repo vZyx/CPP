@@ -3,8 +3,8 @@
 #include <queue>
 using namespace std;
 
-/*
-Queues are a type of container adaptors that operate in a first in first out First in first out (FIFO) type of arrangement. 
+/* first in first out First in first out
+Queues are a type of container adaptors that operate in a ** first in first out First in first out (FIFO)** type of arrangement. 
 Elements are inserted at the back (end) and are deleted from the front.
 
 Queues use an encapsulated object of deque or list (sequential container class) as its underlying container,
@@ -25,13 +25,13 @@ void show(queue<int> gq)
 int main()
 {
 	queue<int> gquiz;
-	gquiz.push(10);
-	gquiz.push(20);
-	gquiz.push(30);
+	gquiz.push(10);//insert 10
+	gquiz.push(20);//insert 20
+	gquiz.push(30);//insert 30
 
 	cout << "The queue gquiz is : ";
 	show(gquiz);
-
+	// {10, 20, 30}
 	cout << "\ngquiz.size() : " << gquiz.size();
 	cout << "\ngquiz.front() : " << gquiz.front();
 	cout << "\ngquiz.back() : " << gquiz.back();
@@ -48,7 +48,7 @@ int main()
 
 push()	Inserts an element at the back of the queue
 pop()	Removes an element from the front of the queue
-front()	Returns the first element of the queue
+*front()	Returns the first element of the queue
 back()	Returns the last element of the queue
 size()	Returns the number of elements in the queue
 empty()	Returns true if the queue is empty

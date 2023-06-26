@@ -52,6 +52,7 @@ Vectors are used to store elements of similar data types.
 
     cout << "\nVector 6\n";
     vector<int> vec6 = {1, 3, 5, 7, 9};
+/////////////////////////////////////////////////////////////////////////////////////////
     // use iterator with for loop
     for (vector<int>::iterator iter6 = vec6.begin(); iter6 != vec6.end(); iter6++) {
       cout  << *iter6 << "  ";
@@ -66,7 +67,7 @@ Vectors are used to store elements of similar data types.
     for (auto iter6 : vec6) {
         cout << iter6 << "  ";
     }
-
+//////////////////////////////////////////////////////////////////////////////////////////
     cout << "\nVector 7\n";
     //Deleting elements from a vector
     vector<int> vec7 = {2, 4, 5, 6, 8, 9, 11};

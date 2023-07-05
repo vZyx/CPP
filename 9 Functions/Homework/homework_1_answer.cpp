@@ -17,7 +17,7 @@ int max(int a, int b, int c, int d, int e, int f) {
 }
 
 int main() {
-	cout<<max(1, 2, 3, 4, 5, 6);
+	cout<<max(1, 2, 3, 4, 5, 6); // 6 integers
 
 	return 0;
 }

@@ -8,7 +8,6 @@ by forming a logic such that for each row we get the required number of columns 
 (3) We print the ‘*’ inside the inner loop.
 (4) Observe symmetry in the pattern or check if a pattern is a combination of two or more similar patterns. (Some questions)
 */
-
 void pattern1(int N)
 {
     
@@ -22,7 +21,7 @@ void pattern1(int N)
 
         // As soon as N stars are printed, we move to the next row
         // And give a line break otherwise all stars
-        // would get printed in 1 line.
+        // would get printed in 1 line. 
         cout << endl;
     }
 }

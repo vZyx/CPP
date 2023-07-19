@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
-#include <memory>
-
+using namespace std;
 int main()
 {
     // increase the size of an array
@@ -22,7 +21,7 @@ int main()
     q = nullptr; // q wont point to the array, only p
 
     for (int i = 0; i < 5; i++) {
-        std::cout << p[i] << " " ;
+        cout << p[i] << " " ;
     }
     
     return 0;

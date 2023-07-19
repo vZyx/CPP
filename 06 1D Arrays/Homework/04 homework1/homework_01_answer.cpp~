@@ -15,7 +15,7 @@ int main() {
 
 	bool increasing = 1; /** we will assume that the array is increasing at first **/
 	for (int i = 1; i < n; i++) {
-		if (a[i] < a[i - 1]) {
+		if (a[i] < a[i - 1])- {
 			increasing = 0;
 			break;
 		}

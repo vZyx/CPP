@@ -1,5 +1,4 @@
-#include<iostream>
-#include<string>
+#include <iostream>
 #include "car.h"
 
 using namespace std;
@@ -12,6 +11,6 @@ int main()
 
     cout << c1.getBrand() << endl;
     cout << c1.getColor() << endl;
-    
+
     return 0;
 }
